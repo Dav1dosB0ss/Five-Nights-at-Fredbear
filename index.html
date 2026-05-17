@@ -25,7 +25,7 @@
             margin: 0; 
             padding: 0;
             width: 100%; 
-            height: 100dvh; /* Строго динамическая высота */
+            height: 100dvh; /* Динамическая высота для телефонов */
             overflow: hidden;
             background: black;
             font-family: 'Courier New', Courier, monospace;
@@ -109,7 +109,6 @@
             cursor: not-allowed; 
         }
 
-        /* Кнопка переключения языка */
         #lang-toggle {
             position: absolute;
             top: 2vw;
@@ -164,7 +163,7 @@
 
         /* --- КОНТЕЙНЕР ИГРЫ --- */
         #game-container {
-            position: fixed; /* Было relative. Fixed спасет от вылезания за экран */
+            position: fixed; /* Fixed для телефонов */
             top: 0; left: 0; right: 0; bottom: 0;
             background: var(--bg-color); 
             overflow: hidden; 
@@ -175,16 +174,14 @@
         #office-viewport { 
             position: absolute; 
             width: 100vw; 
-            height: 100vh; 
-            height: 100dvh;
+            height: 100dvh; 
             overflow: hidden; 
         }
 
         #office-panorama {
             position: absolute; 
             width: 160vw; 
-            height: 100vh; 
-            height: 100dvh;
+            height: 100dvh; 
             left: 0; 
             top: 0;
             background: 
@@ -225,7 +222,6 @@
             text-align: center;
         }
 
-        /* Коридор */
         #hallway {
             position: absolute; 
             left: 60vw; 
@@ -253,7 +249,6 @@
             transition: opacity 0.1s; 
         }
 
-        /* Вентиляции */
         .vent-container {
             position: absolute; 
             bottom: 25vh; 
@@ -294,7 +289,6 @@
             box-shadow: 0 15px 30px black; 
         }
 
-        /* Панели кнопок */
         .control-panel {
             position: absolute; 
             top: 35vh; 
@@ -329,29 +323,12 @@
             touch-action: manipulation;
         }
         
-        .btn-color-light { 
-            background: #dedede; 
-            border-color: #999; 
-        }
-
-        .btn-color-door { 
-            background: #9c0000; 
-            border-color: #550000; 
-        }
+        .btn-color-light { background: #dedede; border-color: #999; }
+        .btn-color-door { background: #9c0000; border-color: #550000; }
         
-        .btn-active-light { 
-            background: #fff !important; 
-            box-shadow: 0 0 30px #fff, inset 0 0 10px #000; 
-            border-color: #fff !important; 
-        }
+        .btn-active-light { background: #fff !important; box-shadow: 0 0 30px #fff, inset 0 0 10px #000; border-color: #fff !important; }
+        .btn-active-door { background: #ff0000 !important; box-shadow: 0 0 30px #f00, inset 0 0 10px #400; border-color: #ff6666 !important; }
 
-        .btn-active-door { 
-            background: #ff0000 !important; 
-            box-shadow: 0 0 30px #f00, inset 0 0 10px #400; 
-            border-color: #ff6666 !important; 
-        }
-
-        /* СТОЛ */
         #desk { 
             position: absolute; 
             bottom: 0; 
@@ -366,42 +343,10 @@
             justify-content: center; 
         }
 
-        .monitor { 
-            position: absolute; 
-            top: -12vh; 
-            left: 45vw; 
-            width: 15vw; 
-            height: 18vh; 
-            background: #06121b; 
-            border: 10px solid #724726; 
-            border-radius: 5px; 
-            box-shadow: 0 0 40px black; 
-        }
-
-        .monitor2 { 
-            position: absolute; 
-            top: -10vh; 
-            right: 45vw; 
-            width: 12vw; 
-            height: 16vh; 
-            background: #11283a; 
-            border: 8px solid #5d3921; 
-            border-radius: 5px; 
-            box-shadow: 0 0 30px black; 
-            transform: rotate(-5deg); 
-        }
-
-        .cup { 
-            position: absolute; 
-            top: -6vh; 
-            left: 35vw; 
-            width: 4vw; 
-            height: 9vh; 
-            background: linear-gradient(90deg, #f4f1d0, #d13d3d); 
-            border-radius: 5px; 
-            box-shadow: inset -10px 0 15px rgba(0,0,0,0.35); 
-        }
-
+        .monitor { position: absolute; top: -12vh; left: 45vw; width: 15vw; height: 18vh; background: #06121b; border: 10px solid #724726; border-radius: 5px; box-shadow: 0 0 40px black; }
+        .monitor2 { position: absolute; top: -10vh; right: 45vw; width: 12vw; height: 16vh; background: #11283a; border: 8px solid #5d3921; border-radius: 5px; box-shadow: 0 0 30px black; transform: rotate(-5deg); }
+        .cup { position: absolute; top: -6vh; left: 35vw; width: 4vw; height: 9vh; background: linear-gradient(90deg, #f4f1d0, #d13d3d); border-radius: 5px; box-shadow: inset -10px 0 15px rgba(0,0,0,0.35); }
+        
         #retro-player { 
             position: absolute; 
             top: -8vh; 
@@ -421,133 +366,33 @@
             transform: rotate(2deg); 
         }
 
-        .retro-reel { 
-            width: 3.3vw; 
-            height: 3.3vw; 
-            min-width: 34px; 
-            min-height: 34px; 
-            border-radius: 50%; 
-            background: radial-gradient(circle, #111 0 18%, #c7b47c 19% 32%, #1a140b 33% 36%, #c7b47c 37% 100%); 
-            border: 3px solid #1b160e; 
-            box-shadow: inset 0 0 12px black; 
-        }
-
-        .audio-controls { 
-            display: flex; 
-            gap: 8px; 
-            align-items: center; 
-            justify-content: center; 
-        }
-
-        .audio-control-btn { 
-            position: relative; 
-            width: 3vw; 
-            height: 3vw; 
-            min-width: 42px; 
-            min-height: 42px; 
-            border-radius: 50%; 
-            border: 4px solid #360000; 
-            background: radial-gradient(circle at 35% 30%, #ff6666 0%, #c40000 45%, #4b0000 100%); 
-            box-shadow: 0 0 14px rgba(255,0,0,0.35), inset 0 -8px 10px rgba(0,0,0,0.55); 
-            cursor: pointer; 
-        }
-
-        .audio-control-btn::before, .audio-control-btn::after { 
-            content: ''; 
-            position: absolute; 
-            display: block; 
-        }
-
-        #audio-load-btn::before { 
-            left: 38%; 
-            top: 29%; 
-            border-left: 14px solid #fff4cf; 
-            border-top: 9px solid transparent; 
-            border-bottom: 9px solid transparent; 
-            filter: drop-shadow(0 0 4px #2b0000); 
-        }
-
-        #audio-pause-btn::before, #audio-pause-btn::after { 
-            top: 28%; 
-            width: 6px; 
-            height: 18px; 
-            background: #fff4cf; 
-            border-radius: 2px; 
-            filter: drop-shadow(0 0 4px #2b0000); 
-        }
-
-        #audio-pause-btn::before { left: 33%; } 
-        #audio-pause-btn::after { right: 33%; }
-
-        .audio-control-btn.playing { 
-            box-shadow: 0 0 24px rgba(255,0,0,0.7), inset 0 -8px 10px rgba(0,0,0,0.55); 
-        }
-        
+        .retro-reel { width: 3.3vw; height: 3.3vw; min-width: 34px; min-height: 34px; border-radius: 50%; background: radial-gradient(circle, #111 0 18%, #c7b47c 19% 32%, #1a140b 33% 36%, #c7b47c 37% 100%); border: 3px solid #1b160e; box-shadow: inset 0 0 12px black; }
+        .audio-controls { display: flex; gap: 8px; align-items: center; justify-content: center; }
+        .audio-control-btn { position: relative; width: 3vw; height: 3vw; min-width: 42px; min-height: 42px; border-radius: 50%; border: 4px solid #360000; background: radial-gradient(circle at 35% 30%, #ff6666 0%, #c40000 45%, #4b0000 100%); box-shadow: 0 0 14px rgba(255,0,0,0.35), inset 0 -8px 10px rgba(0,0,0,0.55); cursor: pointer; }
+        .audio-control-btn::before, .audio-control-btn::after { content: ''; position: absolute; display: block; }
+        #audio-load-btn::before { left: 38%; top: 29%; border-left: 14px solid #fff4cf; border-top: 9px solid transparent; border-bottom: 9px solid transparent; filter: drop-shadow(0 0 4px #2b0000); }
+        #audio-pause-btn::before, #audio-pause-btn::after { top: 28%; width: 6px; height: 18px; background: #fff4cf; border-radius: 2px; filter: drop-shadow(0 0 4px #2b0000); }
+        #audio-pause-btn::before { left: 33%; } #audio-pause-btn::after { right: 33%; }
+        .audio-control-btn.playing { box-shadow: 0 0 24px rgba(255,0,0,0.7), inset 0 -8px 10px rgba(0,0,0,0.55); }
         #audio-file-input { display: none; }
         
-        #fan { 
-            position: absolute; 
-            top: -20vh; 
-            right: 35vw; 
-            width: 12vw; 
-            height: 22vh; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-        }
+        #fan { position: absolute; top: -20vh; right: 35vw; width: 12vw; height: 22vh; display: flex; flex-direction: column; align-items: center; }
+        .fan-base { width: 5vw; height: 3vh; background: #5e422f; border-radius: 5px; margin-top: auto; box-shadow: 0 5px 10px black; }
+        .fan-stand { width: 1.5vw; height: 8vh; background: #7b5a3c; }
+        .fan-head { width: 12vw; height: 12vw; background: rgba(27,50,65,0.75); border-radius: 50%; border: 5px solid #91643c; position: absolute; top: 0; display: flex; justify-content: center; align-items: center; box-shadow: 0 0 30px black; }
+        .fan-blades { width: 90%; height: 90%; background: conic-gradient(from 0deg, transparent 0deg 30deg, #d7b36a 30deg 90deg, transparent 90deg 150deg, #d7b36a 150deg 210deg, transparent 210deg 270deg, #d7b36a 270deg 330deg, transparent 330deg 360deg); border-radius: 50%; animation: spin 0.2s linear infinite; }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
 
-        .fan-base { 
-            width: 5vw; 
-            height: 3vh; 
-            background: #5e422f; 
-            border-radius: 5px; 
-            margin-top: auto; 
-            box-shadow: 0 5px 10px black; 
-        }
-
-        .fan-stand { 
-            width: 1.5vw; 
-            height: 8vh; 
-            background: #7b5a3c; 
-        }
-
-        .fan-head { 
-            width: 12vw; 
-            height: 12vw; 
-            background: rgba(27,50,65,0.75); 
-            border-radius: 50%; 
-            border: 5px solid #91643c; 
-            position: absolute; 
-            top: 0; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            box-shadow: 0 0 30px black; 
-        }
-
-        .fan-blades { 
-            width: 90%; 
-            height: 90%; 
-            background: conic-gradient(from 0deg, transparent 0deg 30deg, #d7b36a 30deg 90deg, transparent 90deg 150deg, #d7b36a 150deg 210deg, transparent 210deg 270deg, #d7b36a 270deg 330deg, transparent 330deg 360deg); 
-            border-radius: 50%; 
-            animation: spin 0.2s linear infinite; 
-        }
-
-        @keyframes spin { 
-            100% { transform: rotate(360deg); } 
-        }
-
-        /* --- КНОПКИ ИНТЕРФЕЙСА --- */
         /* --- КНОПКИ ИНТЕРФЕЙСА --- */
         .ui-pull-btn {
-            position: fixed; /* Было absolute */
-            bottom: env(safe-area-inset-bottom, 2px); /* Защита от нижних полосок навигации Android/iOS */
+            position: fixed; 
+            bottom: env(safe-area-inset-bottom, 2px); 
             height: 40px; 
             width: 25vw;
             background: rgba(11,32,48,0.72); 
             border: 2px solid rgba(255,212,90,0.32);
             border-bottom: none; 
-            z-index: 4000; /* Подняли z-index, чтобы они 100% были поверх всего */
+            z-index: 4000; 
             cursor: pointer; 
             transition: 0.2s;
             display: flex; 
@@ -567,19 +412,9 @@
             box-shadow: 0 0 25px rgba(255,255,255,0.2); 
         }
 
-        #btn-mask-ui { 
-            left: 5vw; 
-            border-radius: 15px 15px 0 0; 
-            border-left: 5px solid var(--ui-red); 
-        }
-
-        #btn-tablet-ui { 
-            right: 5vw; 
-            border-radius: 15px 15px 0 0; 
-            border-right: 5px solid var(--ui-cyan); 
-        }
+        #btn-mask-ui { left: 5vw; border-radius: 15px 15px 0 0; border-left: 5px solid var(--ui-red); }
+        #btn-tablet-ui { right: 5vw; border-radius: 15px 15px 0 0; border-right: 5px solid var(--ui-cyan); }
         
-        /* МОБИЛЬНАЯ КНОПКА ФОНАРИКА */
         #mobile-flash-btn {
             display: none;
             position: absolute; 
@@ -599,11 +434,7 @@
             user-select: none; 
             -webkit-user-select: none;
         }
-
-        #mobile-flash-btn.active { 
-            background: rgba(255,255,255,0.8); 
-            box-shadow: 0 0 30px #fff; 
-        }
+        #mobile-flash-btn.active { background: rgba(255,255,255,0.8); box-shadow: 0 0 30px #fff; }
 
         /* --- ПЛАНШЕТ --- */
         #tablet { 
@@ -611,305 +442,123 @@
             bottom: -120%; 
             left: 0; 
             width: 100vw; 
-            height: 100vh; 
-            height: 100dvh;
+            height: 100dvh; 
             background: #071521; 
             z-index: 300; 
             display: flex; 
             border-top: 8px solid #6b4a24; 
             transition: bottom 0.4s cubic-bezier(0.16, 1, 0.3, 1); 
         }
+        #tablet.active { bottom: 0; }
 
-        #tablet.active { 
-            bottom: 0; 
+        #cam-view { flex: 2.2; position: relative; border: 25px solid #5d3921; background: #071521; overflow: hidden; display: flex; justify-content: center; align-items: center; }
+        #map-view { flex: 1.5; background: var(--map-bg); position: relative; padding: 20px; border-left: 4px solid #6b4a24; display: flex; flex-direction: column; align-items: center; box-shadow: inset 0 0 100px rgba(0,40,70,0.9); overflow-y: auto; }
+        
+        .map-root { position: relative; width: 400px; height: 500px; margin-top: 10px; transform: scale(0.9); transform-origin: top center; }
+        .map-svg-lines { position: absolute; inset: 0; z-index: 1; pointer-events: none; }
+        .room { position: absolute; border: 2px solid var(--map-line); background: rgba(9,62,86,0.85); color: var(--map-glow); font-size: 8px; font-weight: bold; text-transform: uppercase; display: flex; align-items: center; justify-content: center; text-align: center; pointer-events: none; z-index: 5; box-shadow: inset 0 0 15px rgba(0,255,255,0.1); }
+        .r-workshop { top: 20px; left: 20px; width: 70px; height: 70px; } .r-parts { top: 100px; left: 20px; width: 70px; height: 80px; } .r-kitchen { top: 20px; left: 100px; width: 90px; height: 80px; } .r-halltop { top: 110px; left: 100px; width: 190px; height: 20px; border-bottom: none; } .r-dining { top: 30px; left: 300px; width: 120px; height: 200px; } .r-cove { top: 240px; left: 300px; width: 120px; height: 80px; } .r-party1 { top: 150px; left: 50px; width: 60px; height: 60px; } .r-party2 { top: 220px; left: 50px; width: 60px; height: 60px; } .r-office { top: 430px; left: 80px; width: 120px; height: 50px; border-color: var(--ui-gold); color: var(--ui-gold); } .r-ventL { top: 400px; left: 30px; width: 40px; height: 60px; } .r-ventR { top: 400px; left: 210px; width: 40px; height: 60px; }
+
+        .cam-node { position: absolute; width: 35px; height: 18px; background: #10283a; border: 1px solid var(--ui-cyan); color: var(--ui-cyan); font-size: 9px; display: flex; align-items: center; justify-content: center; cursor: pointer; z-index: 10; transition: 0.1s; box-shadow: 0 0 10px black; }
+        .cam-node.active { background: var(--ui-gold); color: black; border-color: #fff; font-weight: bold; box-shadow: 0 0 15px var(--ui-gold); }
+
+        /* ИНТЕРФЕЙС ЭНДОСКЕЛЕТА (КАЛИТКА) */
+        #endo-ui {
+            display: none;
+            position: absolute;
+            bottom: 30px;
+            right: 30px;
+            background: rgba(0, 0, 0, 0.8);
+            border: 3px solid #555;
+            padding: 15px;
+            border-radius: 8px;
+            z-index: 40;
+            text-align: center;
+            box-shadow: 0 0 20px black;
         }
 
-        #cam-view { 
-            flex: 2.2; 
-            position: relative; 
-            border: 25px solid #5d3921; 
-            background: #071521; 
-            overflow: hidden; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
+        #endo-progress-bar {
+            width: 30px;
+            height: 150px;
+            background: #111;
+            border: 2px solid #fff;
+            margin: 0 auto 10px;
+            position: relative;
+            overflow: hidden;
         }
 
-        #map-view { 
-            flex: 1.5; 
-            background: var(--map-bg); 
-            position: relative; 
-            padding: 20px; 
-            border-left: 4px solid #6b4a24; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            box-shadow: inset 0 0 100px rgba(0,40,70,0.9); 
-            overflow-y: auto; 
+        #endo-progress-fill {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 0%;
+            background: red;
+            box-shadow: 0 0 10px red;
+            transition: height 0.1s linear;
         }
 
-        .map-root { 
-            position: relative; 
-            width: 400px; 
-            height: 500px; 
-            margin-top: 10px; 
-            transform: scale(0.9); 
-            transform-origin: top center; 
+        #endo-hold-btn {
+            background: #333;
+            color: white;
+            border: 2px solid #777;
+            padding: 10px 15px;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 5px;
+            touch-action: none;
         }
+        #endo-hold-btn:active { background: #555; }
 
-        .map-svg-lines { 
-            position: absolute; 
-            inset: 0; 
-            z-index: 1; 
-            pointer-events: none; 
-        }
+        /* ЭФФЕКТЫ */
+        .noise { position: absolute; inset: 0; pointer-events: none; opacity: 0.15; z-index: 50; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); }
+        .scanlines { position: absolute; inset: 0; pointer-events: none; z-index: 51; background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%); background-size: 100% 5px; }
+        #rec-icon { position: absolute; top: 20px; right: 20px; color: red; font-weight: bold; font-size: 24px; animation: blink 1s infinite; z-index: 100; text-shadow: 0 0 10px red; }
+        @keyframes blink { 0% { opacity: 1; } 50% { opacity: 0; } 100% { opacity: 1; } }
 
-        .room { 
-            position: absolute; 
-            border: 2px solid var(--map-line); 
-            background: rgba(9,62,86,0.85); 
-            color: var(--map-glow); 
-            font-size: 8px; 
-            font-weight: bold; 
-            text-transform: uppercase; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            text-align: center; 
-            pointer-events: none; 
-            z-index: 5; 
-            box-shadow: inset 0 0 15px rgba(0,255,255,0.1); 
-        }
-
-        .r-workshop { top: 20px; left: 20px; width: 70px; height: 70px; } 
-        .r-parts { top: 100px; left: 20px; width: 70px; height: 80px; } 
-        .r-kitchen { top: 20px; left: 100px; width: 90px; height: 80px; } 
-        .r-halltop { top: 110px; left: 100px; width: 190px; height: 20px; border-bottom: none; } 
-        .r-dining { top: 30px; left: 300px; width: 120px; height: 200px; } 
-        .r-cove { top: 240px; left: 300px; width: 120px; height: 80px; } 
-        .r-party1 { top: 150px; left: 50px; width: 60px; height: 60px; } 
-        .r-party2 { top: 220px; left: 50px; width: 60px; height: 60px; } 
-        .r-office { top: 430px; left: 80px; width: 120px; height: 50px; border-color: var(--ui-gold); color: var(--ui-gold); } 
-        .r-ventL { top: 400px; left: 30px; width: 40px; height: 60px; } 
-        .r-ventR { top: 400px; left: 210px; width: 40px; height: 60px; }
-
-        .cam-node { 
-            position: absolute; 
-            width: 35px; 
-            height: 18px; 
-            background: #10283a; 
-            border: 1px solid var(--ui-cyan); 
-            color: var(--ui-cyan); 
-            font-size: 9px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            cursor: pointer; 
-            z-index: 10; 
-            transition: 0.1s; 
-            box-shadow: 0 0 10px black; 
-        }
-
-        .cam-node.active { 
-            background: var(--ui-gold); 
-            color: black; 
-            border-color: #fff; 
-            font-weight: bold; 
-            box-shadow: 0 0 15px var(--ui-gold); 
-        }
-
-        /* --- ЭФФЕКТЫ --- */
-        .noise { 
-            position: absolute; 
-            inset: 0; 
-            pointer-events: none; 
-            opacity: 0.15; 
-            z-index: 50; 
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); 
-        }
-
-        .scanlines { 
-            position: absolute; 
-            inset: 0; 
-            pointer-events: none; 
-            z-index: 51; 
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.3) 50%); 
-            background-size: 100% 5px; 
-        }
-
-        #rec-icon { 
-            position: absolute; 
-            top: 20px; 
-            right: 20px; 
-            color: red; 
-            font-weight: bold; 
-            font-size: 24px; 
-            animation: blink 1s infinite; 
-            z-index: 100; 
-            text-shadow: 0 0 10px red; 
-        }
-
-        @keyframes blink { 
-            0% { opacity: 1; } 
-            50% { opacity: 0; } 
-            100% { opacity: 1; } 
-        }
-
+        /* ЗОЛОТАЯ МАСКА (FNaF 2 STYLE) */
         #mask-overlay { 
             display: none; 
-            position: absolute; 
-            inset: 0; 
+            position: fixed; /* Фиксируем намертво для телефонов и ПК */
+            top: 0; left: 0;
+            width: 100vw; 
+            height: 100dvh; 
             z-index: 150; 
             pointer-events: none; 
-            background: radial-gradient(circle, transparent 10%, rgba(0,0,0,0.95) 85%); 
+            /* Подключаем твою картинку */
+            background-image: url("assets/Fredbear's Mask.png");
+            background-size: 100% 100%; /* Растягивает картинку ровно по краям экрана, как во FNaF 2 */
+            background-position: center;
+            background-repeat: no-repeat;
         }
 
-        #jumpscare { 
-            position: absolute; 
-            inset: 0; 
-            background: black; 
-            z-index: 1000; 
-            display: none; 
-            justify-content: center; 
-            align-items: center; 
-            overflow: hidden; 
-        }
-
-        #jumpscare.animating { 
-            display: flex; 
-            background: radial-gradient(circle, #311 0%, #000 62%); 
-            animation: jumpscareShake 0.08s infinite; 
-        }
-
-        .jumpscare-flash { 
-            position: absolute; 
-            inset: 0; 
-            background: rgba(255,255,255,0.14); 
-            animation: jumpscareFlash 0.11s steps(2) infinite; 
-            z-index: 1; 
-            pointer-events: none; 
-        }
-
-        .jumpscare-sprite { 
-            position: absolute; 
-            left: 50%; 
-            top: 50%; 
-            z-index: 3; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-        }
-
-        .jumpscare-sprite svg { 
-            width: 450px; 
-            height: 550px; 
-            max-width: none; 
-            max-height: none; 
-        }
+        #jumpscare { position: absolute; inset: 0; background: black; z-index: 1000; display: none; justify-content: center; align-items: center; overflow: hidden; }
+        #jumpscare.animating { display: flex; background: radial-gradient(circle, #311 0%, #000 62%); animation: jumpscareShake 0.08s infinite; }
+        .jumpscare-flash { position: absolute; inset: 0; background: rgba(255,255,255,0.14); animation: jumpscareFlash 0.11s steps(2) infinite; z-index: 1; pointer-events: none; }
+        .jumpscare-sprite { position: absolute; left: 50%; top: 50%; z-index: 3; display: flex; align-items: center; justify-content: center; }
+        .jumpscare-sprite svg { width: 450px; height: 550px; max-width: none; max-height: none; }
 
         .jumpscare-sb.from-left { animation: springbonnieLeftLunge 1.15s cubic-bezier(0.03, 0.9, 0.04, 1) forwards; }
         .jumpscare-sb.from-right { animation: springbonnieRightLunge 1.15s cubic-bezier(0.03, 0.9, 0.04, 1) forwards; }
         .jumpscare-fb { animation: fredbearHeadRush 1.25s cubic-bezier(0.02, 0.82, 0.02, 1) forwards; }
-        .jumpscare-fb svg { width: 520px; height: 620px; }
+        .jumpscare-endo { animation: endoJump 1.1s cubic-bezier(0.1, 0.8, 0.1, 1) forwards; }
+        .jumpscare-fb svg, .jumpscare-endo svg { width: 520px; height: 620px; }
 
-        @keyframes jumpscareShake { 
-            0% { transform: translate(0,0) rotate(0deg); } 
-            25% { transform: translate(-12px,8px) rotate(-1deg); } 
-            50% { transform: translate(10px,-10px) rotate(1deg); } 
-            75% { transform: translate(-8px,-6px) rotate(0.5deg); } 
-            100% { transform: translate(12px,6px) rotate(-0.5deg); } 
-        }
+        @keyframes jumpscareShake { 0% { transform: translate(0,0) rotate(0deg); } 25% { transform: translate(-12px,8px) rotate(-1deg); } 50% { transform: translate(10px,-10px) rotate(1deg); } 75% { transform: translate(-8px,-6px) rotate(0.5deg); } 100% { transform: translate(12px,6px) rotate(-0.5deg); } }
+        @keyframes jumpscareFlash { 0%, 100% { opacity: 0; } 50% { opacity: 1; } }
+        @keyframes springbonnieLeftLunge { 0% { transform: translate(-95vw, 20vh) scale(0.45) rotate(-16deg); opacity: 0.45; } 28% { transform: translate(-54vw, 12vh) scale(0.85) rotate(-8deg); opacity: 0.8; } 64% { transform: translate(-50%, -50%) scale(2.25) rotate(4deg); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(5.6) rotate(-2deg); opacity: 1; } }
+        @keyframes springbonnieRightLunge { 0% { transform: translate(95vw, 20vh) scale(0.45) rotate(16deg); opacity: 0.45; } 28% { transform: translate(54vw, 12vh) scale(0.85) rotate(8deg); opacity: 0.8; } 64% { transform: translate(-50%, -50%) scale(2.25) rotate(-4deg); opacity: 1; } 100% { transform: translate(-50%, -50%) scale(5.6) rotate(2deg); opacity: 1; } }
+        @keyframes fredbearHeadRush { 0% { transform: translate(-50%, -50%) scale(0.18); opacity: 0.25; filter: blur(3px); } 35% { transform: translate(-50%, -50%) scale(0.7); opacity: 0.75; filter: blur(1px); } 70% { transform: translate(-50%, -50%) scale(2.4); opacity: 1; filter: blur(0); } 100% { transform: translate(-50%, -50%) scale(6.1); opacity: 1; filter: blur(0); } }
+        @keyframes endoJump { 0% { transform: translate(-50%, 100%) scale(0.5); opacity: 0.2; } 40% { transform: translate(-50%, -30%) scale(1.5); opacity: 0.9; } 100% { transform: translate(-50%, -50%) scale(4.5); opacity: 1; } }
 
-        @keyframes jumpscareFlash { 
-            0%, 100% { opacity: 0; } 
-            50% { opacity: 1; } 
-        }
+        #ui-stats { position: absolute; top: 20px; left: 20px; z-index: 500; font-size: 18px; text-shadow: 2px 2px 5px black; }
+        #clock-ui { position: absolute; top: 20px; right: 20px; z-index: 500; font-size: 28px; font-weight: bold; text-shadow: 2px 2px 5px black; }
 
-        @keyframes springbonnieLeftLunge { 
-            0% { transform: translate(-95vw, 20vh) scale(0.45) rotate(-16deg); opacity: 0.45; } 
-            28% { transform: translate(-54vw, 12vh) scale(0.85) rotate(-8deg); opacity: 0.8; } 
-            64% { transform: translate(-50%, -50%) scale(2.25) rotate(4deg); opacity: 1; } 
-            100% { transform: translate(-50%, -50%) scale(5.6) rotate(-2deg); opacity: 1; } 
-        }
-
-        @keyframes springbonnieRightLunge { 
-            0% { transform: translate(95vw, 20vh) scale(0.45) rotate(16deg); opacity: 0.45; } 
-            28% { transform: translate(54vw, 12vh) scale(0.85) rotate(8deg); opacity: 0.8; } 
-            64% { transform: translate(-50%, -50%) scale(2.25) rotate(-4deg); opacity: 1; } 
-            100% { transform: translate(-50%, -50%) scale(5.6) rotate(2deg); opacity: 1; } 
-        }
-
-        @keyframes fredbearHeadRush { 
-            0% { transform: translate(-50%, -50%) scale(0.18); opacity: 0.25; filter: blur(3px); } 
-            35% { transform: translate(-50%, -50%) scale(0.7); opacity: 0.75; filter: blur(1px); } 
-            70% { transform: translate(-50%, -50%) scale(2.4); opacity: 1; filter: blur(0); } 
-            100% { transform: translate(-50%, -50%) scale(6.1); opacity: 1; filter: blur(0); } 
-        }
-
-        #ui-stats { 
-            position: absolute; 
-            top: 20px; 
-            left: 20px; 
-            z-index: 500; 
-            font-size: 18px; 
-            text-shadow: 2px 2px 5px black; 
-        }
-
-        #clock-ui { 
-            position: absolute; 
-            top: 20px; 
-            right: 20px; 
-            z-index: 500; 
-            font-size: 28px; 
-            font-weight: bold; 
-            text-shadow: 2px 2px 5px black; 
-        }
-
-        #blackout-event { 
-            position: absolute; 
-            inset: 0; 
-            display: none; 
-            z-index: 900; 
-            justify-content: center; 
-            align-items: center; 
-            background: black; 
-        }
-
-        .glowing-eyes { 
-            width: 150px; 
-            height: 50px; 
-            position: relative; 
-            animation: flicker 4s infinite; 
-        }
-
-        .glowing-eyes::before, .glowing-eyes::after { 
-            content: ''; 
-            position: absolute; 
-            top: 0; 
-            width: 25px; 
-            height: 25px; 
-            background: #fff; 
-            border-radius: 50%; 
-            box-shadow: 0 0 30px #fff, 0 0 50px #fff; 
-        }
-
-        .glowing-eyes::before { left: 10px; } 
-        .glowing-eyes::after { right: 10px; }
-
-        @keyframes flicker { 
-            0%, 10%, 20%, 100% { opacity: 1; } 
-            15%, 25% { opacity: 0; } 
-        }
-
-        #music-box-text { 
-            position: absolute; 
-            bottom: 20px; 
-            color: #555; 
-            font-size: 12px; 
-            letter-spacing: 5px; 
-            animation: blink 2s infinite; 
-            font-family: monospace; 
-        }
+        #blackout-event { position: absolute; inset: 0; display: none; z-index: 900; justify-content: center; align-items: center; background: black; }
+        .glowing-eyes { width: 150px; height: 50px; position: relative; animation: flicker 4s infinite; }
+        .glowing-eyes::before, .glowing-eyes::after { content: ''; position: absolute; top: 0; width: 25px; height: 25px; background: #fff; border-radius: 50%; box-shadow: 0 0 30px #fff, 0 0 50px #fff; }
+        .glowing-eyes::before { left: 10px; } .glowing-eyes::after { right: 10px; }
+        @keyframes flicker { 0%, 10%, 20%, 100% { opacity: 1; } 15%, 25% { opacity: 0; } }
+        #music-box-text { position: absolute; bottom: 20px; color: #555; font-size: 12px; letter-spacing: 5px; animation: blink 2s infinite; font-family: monospace; }
 
         /* --- МОБИЛЬНАЯ АДАПТАЦИЯ --- */
         @media (max-width: 768px) {
@@ -920,15 +569,12 @@
             .menu-animatronics { right: -20vw; opacity: 0.3; }
             #hallway { left: 50vw; top: 5vh; width: 50vw; height: 50vh; }
             .vent-container { bottom: 20vh; width: 22vw; height: 40vh; }
-            #vent-l { left: 5vw; } 
-            #vent-r { right: 5vw; }
+            #vent-l { left: 5vw; } #vent-r { right: 5vw; }
             .control-panel { top: 30vh; width: 8vw; height: 16vh; }
-            #panel-l { left: 25vw; } 
-            #panel-r { right: 25vw; }
+            #panel-l { left: 25vw; } #panel-r { right: 25vw; }
             .btn { width: 6vw; height: 6vw; max-width: 50px; max-height: 50px; }
             .ui-pull-btn { height: 35px; width: 30vw; font-size: 12px; letter-spacing: 1px; }
-            #btn-mask-ui { left: 3vw; } 
-            #btn-tablet-ui { right: 3vw; }
+            #btn-mask-ui { left: 3vw; } #btn-tablet-ui { right: 3vw; }
             #ui-stats { font-size: 14px; top: 10px; left: 10px; }
             #clock-ui { font-size: 20px; top: 10px; right: 10px; }
             #tablet { flex-direction: column; }
@@ -938,6 +584,7 @@
             #rec-icon { font-size: 18px; top: 10px; right: 10px; }
             #cam-name { font-size: 16px !important; top: 10px; left: 10px !important; }
             #night-screen-text { font-size: 6vw; }
+            #endo-ui { transform: scale(0.8); transform-origin: bottom right; bottom: 10px; right: 10px; }
         }
 
         @media (max-width: 480px) {
@@ -955,23 +602,14 @@
             #cam-name { font-size: 12px !important; padding: 5px !important; }
         }
 
+        @media (orientation: landscape) and (max-height: 500px) {
+            #mobile-flash-btn { bottom: 45px; width: 55px; height: 55px; font-size: 24px; }
+            .ui-pull-btn { height: 32px; font-size: 10px; }
+        }
+
         @supports (padding: max(0px)) {
             #ui-stats { padding-left: max(20px, env(safe-area-inset-left)); padding-top: max(20px, env(safe-area-inset-top)); }
             #clock-ui { padding-right: max(20px, env(safe-area-inset-right)); padding-top: max(20px, env(safe-area-inset-top)); }
-        }
-
-        /* Специально для горизонтального режима на телефонах */
-        @media (orientation: landscape) and (max-height: 500px) {
-            #mobile-flash-btn {
-                bottom: 45px; /* Чуть опускаем фонарик */
-                width: 55px; 
-                height: 55px;
-                font-size: 24px;
-            }
-            .ui-pull-btn {
-                height: 32px; /* Делаем кнопки маски/планшета чуть тоньше */
-                font-size: 10px;
-            }
         }
     </style>
 </head>
@@ -981,9 +619,7 @@
 
 <!-- ГЛАВНОЕ МЕНЮ -->
 <div id="main-menu">
-    <!-- Переключатель языка -->
     <div id="lang-toggle" class="fnaf-font" onclick="toggleLanguage()">RUS</div>
-
     <div class="menu-noise"></div>
     <div class="menu-scanlines"></div>
     <div class="menu-animatronics">
@@ -993,7 +629,6 @@
     
     <div class="menu-content">
         <h1 class="menu-title fnaf-font">Five Nights<br>at Fredbear's</h1>
-        
         <button class="menu-btn" id="btn-new-game" onclick="startMenuAction('new')">Новая игра</button>
         <button class="menu-btn" id="btn-continue" onclick="startMenuAction('continue')">
             Продолжить<br>
@@ -1023,13 +658,11 @@
             <div class="poster" style="left: 10vw; top: 20vh; transform: rotate(-3deg);">RULE #1<br><br>DON'T RUN</div>
             <div class="poster" style="right: 15vw; top: 15vh; transform: rotate(4deg);">FREDBEAR<br>&<br>FRIENDS</div>
 
-            <!-- Коридор -->
             <div id="hallway">
                 <div id="hallway-light-fx"></div>
                 <div id="fb-hall" style="display:none; transform: scale(1.6); z-index: 3;"></div>
             </div>
 
-            <!-- Левая вентиляция -->
             <div id="vent-l" class="vent-container">
                 <div style="position:absolute; inset:0; background: repeating-linear-gradient(0deg, #1e5366, #1e5366 10px, #d1a252 10px, #d1a252 15px); opacity:0.32;"></div>
                 <div id="v-light-l" class="vent-light"></div>
@@ -1037,7 +670,6 @@
                 <div id="sb-vent-l" style="display:none; transition: opacity 0.1s; opacity: 0; z-index: 4;"></div>
             </div>
 
-            <!-- Правая вентиляция -->
             <div id="vent-r" class="vent-container">
                 <div style="position:absolute; inset:0; background: repeating-linear-gradient(0deg, #1e5366, #1e5366 10px, #d1a252 10px, #d1a252 15px); opacity:0.32;"></div>
                 <div id="v-light-r" class="vent-light"></div>
@@ -1056,16 +688,14 @@
 
             <!-- СТОЛ -->
             <div id="desk">
-                <div class="monitor">
-                    <div style="width:100%; height:100%; background:#10283a; display:flex; align-items:center; justify-content:center; color:#ff6b6b; font-family:monospace;">OFFLINE</div>
-                </div>
+                <div class="monitor"><div style="width:100%; height:100%; background:#10283a; display:flex; align-items:center; justify-content:center; color:#ff6b6b; font-family:monospace;">OFFLINE</div></div>
                 <div class="monitor2"></div>
                 <div class="cup"></div>
                 <div id="retro-player">
                     <div class="retro-reel"></div>
                     <div class="audio-controls">
-                        <button id="audio-load-btn" class="audio-control-btn" type="button" aria-label="Load/Play"></button>
-                        <button id="audio-pause-btn" class="audio-control-btn" type="button" aria-label="Pause"></button>
+                        <button id="audio-load-btn" class="audio-control-btn" type="button"></button>
+                        <button id="audio-pause-btn" class="audio-control-btn" type="button"></button>
                     </div>
                     <div class="retro-reel"></div>
                     <input id="audio-file-input" type="file" accept="audio/*">
@@ -1080,11 +710,9 @@
         <div class="noise" style="opacity: 0.08;"></div>
     </div>
 
-    <!-- Кнопки интерфейса (с разделением для мыши и тачскрина) -->
+    <!-- КНОПКИ (Наведение для ПК, клик для Мобилок) -->
     <div id="btn-mask-ui" class="ui-pull-btn" onmouseenter="toggleMask()" ontouchstart="toggleMask(); event.preventDefault()">▼ НАДЕТЬ МАСКУ ▼</div>
     <div id="btn-tablet-ui" class="ui-pull-btn" onmouseenter="toggleTablet()" ontouchstart="toggleTablet(); event.preventDefault()">▼ ПЛАНШЕТ ▼</div>
-    
-    <!-- Мобильная кнопка фонарика -->
     <div id="mobile-flash-btn" onpointerdown="toggleFlashlight(true)" onpointerup="toggleFlashlight(false)" onpointerleave="toggleFlashlight(false)" onpointercancel="toggleFlashlight(false)">🔦</div>
 
     <!-- ПЛАНШЕТ -->
@@ -1094,6 +722,13 @@
             <div id="rec-icon">● REC</div>
             <div id="cam-name" style="position:absolute; top:20px; left:20px; background:rgba(0,0,0,0.8); padding:10px; font-size: 22px; border: 2px solid white; z-index: 20;">CAM 01: WORKSHOP</div>
             <div id="cam-content" style="width:100%; height:100%; display:flex; justify-content:center; align-items:center; z-index: 10;"></div>
+            
+            <!-- ИНТЕРФЕЙС ЭНДОСКЕЛЕТА (Появляется только в Safe Room) -->
+            <div id="endo-ui">
+                <div id="endo-progress-bar"><div id="endo-progress-fill"></div></div>
+                <button id="endo-hold-btn" onpointerdown="startClosingGate()" onpointerup="stopClosingGate()" onpointerleave="stopClosingGate()" onpointercancel="stopClosingGate()">ЗАКРЫТЬ</button>
+            </div>
+
             <div class="noise"></div>
             <div class="scanlines"></div>
         </div>
@@ -1139,24 +774,7 @@
     </div>
 
     <!-- МАСКА -->
-    <div id="mask-overlay">
-        <div style="width:100%; height:100%; display:flex; justify-content:center; align-items:center;">
-            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <path d="M15 26 Q50 4 85 26 L90 85 Q50 115 10 85 Z" fill="#6f5700"/>
-                <circle cx="29" cy="26" r="11" fill="#6f5700"/>
-                <circle cx="71" cy="26" r="11" fill="#6f5700"/>
-                <circle cx="29" cy="26" r="5" fill="#2a1b00"/>
-                <circle cx="71" cy="26" r="5" fill="#2a1b00"/>
-                <rect x="38" y="4" width="24" height="14" fill="#050505"/>
-                <rect x="34" y="17" width="32" height="4" fill="#3b1260"/>
-                <circle cx="38" cy="48" r="5" fill="black"/>
-                <circle cx="62" cy="48" r="5" fill="black"/>
-                <ellipse cx="50" cy="70" rx="18" ry="12" fill="#8b6f10"/>
-                <circle cx="50" cy="67" r="3" fill="black"/>
-                <path d="M38 78 Q50 84 62 78" fill="none" stroke="#170f00" stroke-width="2"/>
-            </svg>
-        </div>
-    </div>
+    <div id="mask-overlay"></div>
 
     <!-- БЛЭКАУТ -->
     <div id="blackout-event">
@@ -1171,93 +789,61 @@
     // --- СЛОВАРЬ (СИСТЕМА ЯЗЫКОВ) ---
     const i18n = {
         ru: {
-            newGame: "Новая игра",
-            continue: "Продолжить",
-            nightUpper: "НОЧЬ",
-            nightLower: "Ночь",
-            power: "ЭНЕРГИЯ",
-            usage: "НАГРУЗКА",
-            mask: "▼ НАДЕТЬ МАСКУ ▼",
-            tablet: "▼ ПЛАНШЕТ ▼",
-            musicBox: "[♪ ИГРАЕТ МУЗЫКАЛЬНАЯ ШКАТУЛКА ♪]",
-            survived: "6:00 AM - ТЫ ВЫЖИЛ!"
+            newGame: "Новая игра", continue: "Продолжить", nightUpper: "НОЧЬ", nightLower: "Ночь",
+            power: "ЭНЕРГИЯ", usage: "НАГРУЗКА", mask: "▼ НАДЕТЬ МАСКУ ▼", tablet: "▼ ПЛАНШЕТ ▼",
+            musicBox: "[♪ ИГРАЕТ МУЗЫКАЛЬНАЯ ШКАТУЛКА ♪]", survived: "6:00 AM - ТЫ ВЫЖИЛ!",
+            closeGate: "ЗАКРЫТЬ"
         },
         en: {
-            newGame: "New Game",
-            continue: "Continue",
-            nightUpper: "NIGHT",
-            nightLower: "Night",
-            power: "POWER",
-            usage: "USAGE",
-            mask: "▼ PUT ON MASK ▼",
-            tablet: "▼ TABLET ▼",
-            musicBox: "[♪ MUSIC BOX PLAYING ♪]",
-            survived: "6:00 AM - YOU SURVIVED!"
+            newGame: "New Game", continue: "Continue", nightUpper: "NIGHT", nightLower: "Night",
+            power: "POWER", usage: "USAGE", mask: "▼ PUT ON MASK ▼", tablet: "▼ TABLET ▼",
+            musicBox: "[♪ MUSIC BOX PLAYING ♪]", survived: "6:00 AM - YOU SURVIVED!",
+            closeGate: "HOLD"
         }
     };
 
     let currentLang = 'ru';
 
-    // --- ДАННЫЕ О КАМЕРАХ ---
+    // --- ФОНЫ КАМЕР (Safe Room теперь с клеткой) ---
     const CAM_BACKGROUNDS = {
         'Workshop': `<svg width="100%" height="100%" preserveAspectRatio="none"><rect width="100%" height="100%" fill="#263a4d"/><rect y="62%" width="100%" height="38%" fill="#5a3523"/><pattern id="pegboard" width="22" height="22" patternUnits="userSpaceOnUse"><rect width="22" height="22" fill="#805d35"/><circle cx="11" cy="11" r="2" fill="#2c1b11"/></pattern><rect x="5%" y="8%" width="46%" height="42%" fill="url(#pegboard)" stroke="#d1a252" stroke-width="5"/><rect x="58%" y="20%" width="22%" height="62%" fill="#324b63" stroke="#d1a252" stroke-width="6"/><circle cx="21%" cy="32%" r="8%" fill="#a8921a"/><rect x="10%" y="72%" width="34%" height="12%" fill="#6b3f2c"/><rect x="66%" y="72%" width="20%" height="9%" fill="#8b2639"/></svg>`,
         'Kitchen': `<svg width="100%" height="100%" preserveAspectRatio="none"><pattern id="tiles" width="90" height="90" patternUnits="userSpaceOnUse"><rect width="45" height="45" fill="#f7eac5"/><rect x="45" width="45" height="45" fill="#2e8aa6"/><rect y="45" width="45" height="45" fill="#2e8aa6"/><rect x="45" y="45" width="45" height="45" fill="#f7eac5"/></pattern><rect width="100%" height="100%" fill="#193344"/><rect width="100%" height="100%" fill="url(#tiles)" opacity="0.7"/><rect x="58%" y="18%" width="30%" height="78%" fill="#f0d082" stroke="#8b5a2b" stroke-width="10"/><rect x="8%" y="68%" width="38%" height="18%" fill="#9c2f3f"/><circle cx="26%" cy="34%" r="10%" fill="#ffcc00" opacity="0.35"/></svg>`,
         'Dining': `<svg width="100%" height="100%" preserveAspectRatio="none"><rect width="100%" height="100%" fill="#20394a"/><path d="M0 48 Q 500 0 1000 48 L1000 1000 L0 1000 Z" fill="#633220"/><path d="M0 0 H1000 V140 Q500 90 0 140 Z" fill="#8b2639"/><rect x="9%" y="58%" width="20%" height="34%" fill="#d1a252" stroke="#3a1f11" stroke-width="6"/><rect x="39%" y="66%" width="20%" height="26%" fill="#d1a252" stroke="#3a1f11" stroke-width="6"/><rect x="70%" y="58%" width="20%" height="34%" fill="#d1a252" stroke="#3a1f11" stroke-width="6"/><circle cx="18%" cy="48%" r="5%" fill="#ff4d4d"/><circle cx="49%" cy="55%" r="4%" fill="#38d39f"/><circle cx="80%" cy="48%" r="5%" fill="#ffd45a"/></svg>`,
         'Cove': `<svg width="100%" height="100%" preserveAspectRatio="none"><rect width="100%" height="100%" fill="#142338"/><path d="M0 0 Q300 500 0 1000 Z" fill="#7d3fb2"/><path d="M1000 0 Q700 500 1000 1000 Z" fill="#7d3fb2"/><rect x="30%" y="78%" width="40%" height="12%" fill="#8b4d25" stroke="#2b1608" stroke-width="6"/><text x="50%" y="87%" fill="#ffd45a" font-size="40" font-family="monospace" text-anchor="middle">OUT OF ORDER</text></svg>`,
-        'Safe Room': `<svg width="100%" height="100%" preserveAspectRatio="none"><rect width="100%" height="100%" fill="#1c2038"/><line x1="0" y1="20%" x2="100%" y2="40%" stroke="#65321f" stroke-width="20"/><line x1="0" y1="60%" x2="100%" y2="80%" stroke="#8b2639" stroke-width="20"/><rect x="8%" y="10%" width="26%" height="80%" fill="#263a4d" stroke="#d1a252" stroke-width="5"/><circle cx="72%" cy="50%" r="10%" fill="#ffcc00" opacity="0.35"/><circle cx="72%" cy="50%" r="4%" fill="#ffefb0"/></svg>`,
+        'Safe Room': `<svg width="100%" height="100%" preserveAspectRatio="none">
+                        <rect width="100%" height="100%" fill="#1c2038"/>
+                        <!-- Клетка Эндоскелета -->
+                        <pattern id="cage" width="30" height="30" patternUnits="userSpaceOnUse">
+                            <rect width="30" height="30" fill="transparent" stroke="#444" stroke-width="3"/>
+                        </pattern>
+                        <rect x="25%" y="10%" width="50%" height="90%" fill="url(#cage)" stroke="#333" stroke-width="8"/>
+                        <circle cx="72%" cy="50%" r="10%" fill="#ffcc00" opacity="0.15"/>
+                      </svg>`,
         'Hallway': `<svg width="100%" height="100%" preserveAspectRatio="none"><rect width="100%" height="100%" fill="#132638"/><polygon points="18%,100% 40%,38% 60%,38% 82%,100%" fill="#213f54"/><polygon points="0,0 37%,38% 18%,100% 0,100%" fill="#7b2f47"/><polygon points="100%,0 63%,38% 82%,100% 100%,100%" fill="#5e3d75"/><rect x="45%" y="28%" width="10%" height="11%" fill="#ffd45a" opacity="0.8"/><rect x="41%" y="40%" width="18%" height="60%" fill="#3b2116" opacity="0.65"/></svg>`,
         'Vent Cam L': `<svg width="100%" height="100%" preserveAspectRatio="none"><pattern id="grateL" width="42" height="42" patternUnits="userSpaceOnUse"><rect width="42" height="42" fill="#0d2331"/><path d="M0 0 L42 42 M42 0 L0 42" stroke="#d1a252" stroke-width="4" opacity="0.75"/></pattern><rect width="100%" height="100%" fill="url(#grateL)"/><circle cx="50%" cy="50%" r="22%" fill="#132638" stroke="#8b2639" stroke-width="10"/><circle cx="50%" cy="50%" r="11%" fill="#2e8aa6" opacity="0.45"/></svg>`,
         'Vent Cam R': `<svg width="100%" height="100%" preserveAspectRatio="none"><pattern id="grateR" width="42" height="42" patternUnits="userSpaceOnUse"><rect width="42" height="42" fill="#0d2331"/><path d="M0 0 L42 42 M42 0 L0 42" stroke="#d1a252" stroke-width="4" opacity="0.75"/></pattern><rect width="100%" height="100%" fill="url(#grateR)"/><circle cx="50%" cy="50%" r="22%" fill="#132638" stroke="#8b2639" stroke-width="10"/><circle cx="50%" cy="50%" r="11%" fill="#2e8aa6" opacity="0.45"/></svg>`,
         'Default': `<svg width="100%" height="100%" preserveAspectRatio="none"><rect width="100%" height="100%" fill="#20394a"/><polygon points="0,0 200,100 400,0" fill="#ffcc00" opacity="0.3"/><polygon points="400,0 600,100 800,0" fill="#00e5ff" opacity="0.3"/><rect x="30%" y="70%" width="40%" height="30%" fill="#8b2639"/></svg>`
     };
 
-    // --- ДАННЫЕ О СПРАЙТАХ АНИМАТРОНИКОВ ---
+    // --- АНИМАТРОНИКИ (SVG) ---
     const SVGS = {
-        sb: `<svg width="450" height="550" viewBox="0 0 100 120" style="filter: drop-shadow(0 0 40px rgba(0,0,0,0.9));">
-                <path d="M25 2 L38 48 L15 48 Z" fill="#8B7500"/>
-                <path d="M75 2 L62 48 L85 48 Z" fill="#8B7500"/>
-                <circle cx="50" cy="65" r="45" fill="#a8921a"/>
-                <circle cx="38" cy="55" r="6" fill="#fff" filter="drop-shadow(0 0 10px white)"/>
-                <circle cx="62" cy="55" r="6" fill="#fff" filter="drop-shadow(0 0 10px white)"/>
-                <rect x="30" y="85" width="40" height="15" rx="5" fill="#4b0082"/>
-                <circle cx="45" cy="80" r="3" fill="#000"/>
-                <circle cx="55" cy="80" r="3" fill="#000"/>
-             </svg>`,
-        fb: `<svg width="450" height="550" viewBox="0 0 100 120" style="filter: drop-shadow(0 0 40px rgba(0,0,0,0.9));">
-                <circle cx="50" cy="65" r="48" fill="#504000"/>
-                <rect x="30" y="-5" width="40" height="25" fill="#000"/>
-                <rect x="25" y="15" width="50" height="6" fill="#4B0082"/>
-                <circle cx="38" cy="55" r="5" fill="#fff" filter="drop-shadow(0 0 10px white)"/>
-                <circle cx="62" cy="55" r="5" fill="#fff" filter="drop-shadow(0 0 10px white)"/>
-             </svg>`,
-        fb_blackout: `<svg width="800" height="800" viewBox="0 0 200 250" style="filter: drop-shadow(0 0 50px rgba(0,0,0,1));">
-                <circle cx="100" cy="130" r="90" fill="#111" filter="blur(15px)"/>
-                <circle cx="40" cy="60" r="30" fill="#403000"/>
-                <circle cx="160" cy="60" r="30" fill="#403000"/>
-                <circle cx="40" cy="60" r="15" fill="#201000"/>
-                <circle cx="160" cy="60" r="15" fill="#201000"/>
-                <path d="M 20 130 C 20 20, 180 20, 180 130 Z" fill="#605000"/>
-                <rect x="65" y="10" width="70" height="50" fill="#111"/>
-                <rect x="55" y="50" width="90" height="15" fill="#4B0082"/>
-                <circle cx="65" cy="110" r="18" fill="#000"/>
-                <circle cx="135" cy="110" r="18" fill="#000"/>
-                <circle cx="65" cy="110" r="6" fill="#fff" filter="drop-shadow(0 0 15px white)"/>
-                <circle cx="135" cy="110" r="6" fill="#fff" filter="drop-shadow(0 0 15px white)"/>
-                <ellipse cx="100" cy="150" rx="45" ry="30" fill="#403000"/>
-                <ellipse cx="100" cy="135" rx="18" ry="12" fill="#000"/>
-                <path d="M 20 170 C 20 250, 180 250, 180 170 Z" fill="#302000"/>
-                <path d="M 30 175 C 30 230, 170 230, 170 175 Z" fill="#000"/>
-                <polygon points="40,175 55,175 47,195" fill="#ccc"/>
-                <polygon points="65,175 80,175 72,195" fill="#ccc"/>
-                <polygon points="90,175 105,175 97,195" fill="#ccc"/>
-                <polygon points="115,175 130,175 122,195" fill="#ccc"/>
-                <polygon points="140,175 155,175 147,195" fill="#ccc"/>
-                <polygon points="45,220 60,220 52,200" fill="#ccc"/>
-                <polygon points="70,220 85,220 77,200" fill="#ccc"/>
-                <polygon points="95,220 110,220 102,200" fill="#ccc"/>
-                <polygon points="120,220 135,220 127,200" fill="#ccc"/>
-                <polygon points="145,220 160,220 152,200" fill="#ccc"/>
-             </svg>`
+        sb: `<svg width="450" height="550" viewBox="0 0 100 120" style="filter: drop-shadow(0 0 40px rgba(0,0,0,0.9));"><path d="M25 2 L38 48 L15 48 Z" fill="#8B7500"/><path d="M75 2 L62 48 L85 48 Z" fill="#8B7500"/><circle cx="50" cy="65" r="45" fill="#a8921a"/><circle cx="38" cy="55" r="6" fill="#fff" filter="drop-shadow(0 0 10px white)"/><circle cx="62" cy="55" r="6" fill="#fff" filter="drop-shadow(0 0 10px white)"/><rect x="30" y="85" width="40" height="15" rx="5" fill="#4b0082"/><circle cx="45" cy="80" r="3" fill="#000"/><circle cx="55" cy="80" r="3" fill="#000"/></svg>`,
+        fb: `<svg width="450" height="550" viewBox="0 0 100 120" style="filter: drop-shadow(0 0 40px rgba(0,0,0,0.9));"><circle cx="50" cy="65" r="48" fill="#504000"/><rect x="30" y="-5" width="40" height="25" fill="#000"/><rect x="25" y="15" width="50" height="6" fill="#4B0082"/><circle cx="38" cy="55" r="5" fill="#fff" filter="drop-shadow(0 0 10px white)"/><circle cx="62" cy="55" r="5" fill="#fff" filter="drop-shadow(0 0 10px white)"/></svg>`,
+        fb_blackout: `<svg width="800" height="800" viewBox="0 0 200 250" style="filter: drop-shadow(0 0 50px rgba(0,0,0,1));"><circle cx="100" cy="130" r="90" fill="#111" filter="blur(15px)"/><circle cx="40" cy="60" r="30" fill="#403000"/><circle cx="160" cy="60" r="30" fill="#403000"/><circle cx="40" cy="60" r="15" fill="#201000"/><circle cx="160" cy="60" r="15" fill="#201000"/><path d="M 20 130 C 20 20, 180 20, 180 130 Z" fill="#605000"/><rect x="65" y="10" width="70" height="50" fill="#111"/><rect x="55" y="50" width="90" height="15" fill="#4B0082"/><circle cx="65" cy="110" r="18" fill="#000"/><circle cx="135" cy="110" r="18" fill="#000"/><circle cx="65" cy="110" r="6" fill="#fff" filter="drop-shadow(0 0 15px white)"/><circle cx="135" cy="110" r="6" fill="#fff" filter="drop-shadow(0 0 15px white)"/><ellipse cx="100" cy="150" rx="45" ry="30" fill="#403000"/><ellipse cx="100" cy="135" rx="18" ry="12" fill="#000"/><path d="M 20 170 C 20 250, 180 250, 180 170 Z" fill="#302000"/><path d="M 30 175 C 30 230, 170 230, 170 175 Z" fill="#000"/><polygon points="40,175 55,175 47,195" fill="#ccc"/><polygon points="65,175 80,175 72,195" fill="#ccc"/><polygon points="90,175 105,175 97,195" fill="#ccc"/><polygon points="115,175 130,175 122,195" fill="#ccc"/><polygon points="140,175 155,175 147,195" fill="#ccc"/><polygon points="45,220 60,220 52,200" fill="#ccc"/><polygon points="70,220 85,220 77,200" fill="#ccc"/><polygon points="95,220 110,220 102,200" fill="#ccc"/><polygon points="120,220 135,220 127,200" fill="#ccc"/><polygon points="145,220 160,220 152,200" fill="#ccc"/></svg>`,
+        endo: `<svg width="400" height="500" viewBox="0 0 100 120" style="filter: drop-shadow(0 0 20px rgba(0,0,0,0.8));">
+                 <!-- Голова -->
+                 <rect x="25" y="20" width="50" height="50" fill="#555" rx="8"/>
+                 <rect x="35" y="70" width="30" height="20" fill="#333"/>
+                 <!-- Челюсть -->
+                 <rect x="20" y="90" width="60" height="20" fill="#555" rx="5"/>
+                 <!-- Зубы -->
+                 <rect x="25" y="85" width="8" height="10" fill="#ccc"/> <rect x="38" y="85" width="8" height="10" fill="#ccc"/>
+                 <rect x="51" y="85" width="8" height="10" fill="#ccc"/> <rect x="64" y="85" width="8" height="10" fill="#ccc"/>
+                 <!-- Глаза (Красные/Белые) -->
+                 <circle cx="35" cy="45" r="10" fill="#111"/> <circle cx="65" cy="45" r="10" fill="#111"/>
+                 <circle cx="35" cy="45" r="3" fill="#ff2222" filter="drop-shadow(0 0 8px red)"/>
+                 <circle cx="65" cy="45" r="3" fill="#ff2222" filter="drop-shadow(0 0 8px red)"/>
+               </svg>`
     };
 
     // --- СОСТОЯНИЕ ИГРЫ ---
@@ -1282,6 +868,7 @@
 
     let gameTickInterval;
     let blackoutTimeouts = [];
+    let endoWindingInterval = null;
 
     // --- УПРАВЛЕНИЕ ЯЗЫКОМ ---
     function toggleLanguage() {
@@ -1294,20 +881,18 @@
         const langObj = i18n[currentLang];
         document.getElementById('lang-toggle').innerText = currentLang === 'ru' ? 'RUS' : 'ENG';
         
-        // Меню
         document.getElementById('btn-new-game').innerText = langObj.newGame;
         const hasSave = localStorage.getItem('fnaf_night') !== null;
         document.getElementById('btn-continue').innerHTML = `${langObj.continue}<br><span id="continue-night-txt" style="font-size: 0.5em; color: #888; font-family: monospace; display: block; margin-top: 8px;">${hasSave ? langObj.nightLower + ' ' + currentNight : ''}</span>`;
         
-        // Переходный экран ночи
         document.getElementById('night-screen-text').innerText = currentLang === 'ru' ? currentNight + " " + langObj.nightUpper : langObj.nightUpper + " " + currentNight;
         
-        // Интерфейс игры
         document.getElementById('night-display').innerText = currentLang === 'ru' ? langObj.nightUpper + " " + currentNight : langObj.nightUpper + " " + currentNight;
         document.getElementById('power-label').innerText = langObj.power;
         document.getElementById('btn-mask-ui').innerText = langObj.mask;
         document.getElementById('btn-tablet-ui').innerText = langObj.tablet;
         document.getElementById('music-box-text').innerText = langObj.musicBox;
+        document.getElementById('endo-hold-btn').innerText = langObj.closeGate;
         
         if (state && state.usage) {
             updateUsage();
@@ -1319,41 +904,26 @@
         updateLanguageUI();
 
         state = {
-            power: 100, 
-            usage: 1, 
-            time: 0, 
-            gameOver: false, 
-            tablet: false, 
-            mask: false,
-            doorL: false, 
-            doorR: false, 
-            lightL: false, 
-            lightR: false, 
-            flashlight: false,
-            currentCam: 'Workshop', 
-            inBlackout: false,
+            power: 100, usage: 1, time: 0, gameOver: false, tablet: false, mask: false,
+            doorL: false, doorR: false, lightL: false, lightR: false, flashlight: false,
+            currentCam: 'Workshop', inBlackout: false,
+            endo: { 
+                gateProgress: 0, 
+                escaped: false 
+            },
             enemies: {
                 sb: { 
-                    name: 'Spring Bonnie', 
-                    pos: 'Dining', 
+                    name: 'Spring Bonnie', pos: 'Dining', 
                     pathL: ['Dining', 'Hallway', 'Kitchen', 'Workshop', 'Parts', 'Party 3', 'Party 1', 'Vent Cam L', 'VentL', 'OFFICE'], 
                     pathR: ['Dining', 'Hallway', 'Kitchen', 'Safe Room', 'Party 4', 'Party 2', 'Vent Cam R', 'VentR', 'OFFICE'], 
                     aggro: 4 + currentNight * 4, 
-                    lastMove: 0, 
-                    pathIndex: 0, 
-                    ventWaitTimer: null, 
-                    openVentTime: 0 
+                    lastMove: 0, pathIndex: 0, ventWaitTimer: null, openVentTime: 0 
                 },
                 fb: { 
-                    name: 'Fredbear', 
-                    pos: 'Dining', 
+                    name: 'Fredbear', pos: 'Dining', 
                     path: ['Dining', 'Hallway', 'Front Hall', 'OFFICE'], 
                     aggro: currentNight === 1 ? 3 : 2 + currentNight * 3, 
-                    lastMove: 0, 
-                    pathIndex: 0, 
-                    seen: false, 
-                    retreatTimer: null, 
-                    frontHallTimer: null 
+                    lastMove: 0, pathIndex: 0, seen: false, retreatTimer: null, frontHallTimer: null 
                 }
             }
         };
@@ -1373,7 +943,6 @@
         document.getElementById('menu-sb').innerHTML = SVGS.sb;
 
         ambienceAudio.play().catch(e => {
-            console.log('Автовоспроизведение заблокировано. Ждём клика.');
             document.body.addEventListener('pointerdown', startAmbience, {once:true});
         });
     }
@@ -1384,16 +953,13 @@
 
     function startMenuAction(type) {
         startAmbience(); 
-        
         if (type === 'new') {
-            currentNight = 1;
-            localStorage.setItem('fnaf_night', '1');
+            currentNight = 1; localStorage.setItem('fnaf_night', '1');
         } else {
             currentNight = parseInt(localStorage.getItem('fnaf_night') || '1', 10);
         }
         
         document.getElementById('main-menu').style.display = 'none';
-        
         initState();
         const nightScreen = document.getElementById('night-screen');
         nightScreen.style.display = 'flex';
@@ -1414,193 +980,45 @@
         }
 
         gameTickInterval = setInterval(tick, 1000);
-        
-        window.addEventListener('mousemove', e => { 
-            mouseX = e.clientX / window.innerWidth; 
-        });
-        
+        window.addEventListener('mousemove', e => { mouseX = e.clientX / window.innerWidth; });
         requestAnimationFrame(renderScroll);
 
-        window.addEventListener('keydown', e => {
-            if ((e.key === 'Control' || e.key === 'f') && !state.flashlight) {
-                toggleFlashlight(true);
-            }
-        });
-        window.addEventListener('keyup', e => {
-            if ((e.key === 'Control' || e.key === 'f') && state.flashlight) {
-                toggleFlashlight(false);
-            }
-        });
+        window.addEventListener('keydown', e => { if ((e.key === 'Control' || e.key === 'f') && !state.flashlight) toggleFlashlight(true); });
+        window.addEventListener('keyup', e => { if ((e.key === 'Control' || e.key === 'f') && state.flashlight) toggleFlashlight(false); });
         
         renderCam();
     }
 
     function toggleFlashlight(val) {
         if (state.inBlackout || state.gameOver) return;
-        
         if (state.flashlight !== val) {
             state.flashlight = val;
             playSound(val ? 'lightOn' : 'lightOff');
             document.getElementById('hallway-light-fx').style.opacity = val ? 1 : 0;
-            
             const mobBtn = document.getElementById('mobile-flash-btn');
-            if (mobBtn) {
-                mobBtn.classList.toggle('active', val);
-            }
-            
-            updateUsage(); 
-            updateOffice();
+            if (mobBtn) mobBtn.classList.toggle('active', val);
+            updateUsage(); updateOffice();
         }
     }
 
-    // --- СИСТЕМА ЗВУКА И СИНТЕЗА ---
-
-    function getGameAudioContext() { 
-        try {
-            if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-            if (audioCtx.state === 'suspended') audioCtx.resume();
-            return audioCtx;
-        } catch(e) {
-            return null;
-        } 
-    }
-
-    function playNote(freq, timeOffset) { 
-        if (!audioCtx) return; 
-        
-        const osc = audioCtx.createOscillator();
-        const gain = audioCtx.createGain();
-        
-        osc.connect(gain); 
-        gain.connect(audioCtx.destination);
-        
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(freq, audioCtx.currentTime + timeOffset);
-        
-        gain.gain.setValueAtTime(0.3, audioCtx.currentTime + timeOffset);
-        gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + timeOffset + 0.6);
-        
-        osc.start(audioCtx.currentTime + timeOffset);
-        osc.stop(audioCtx.currentTime + timeOffset + 0.6); 
-    }
-
-    function playMusicBox() { 
-        const ctx = getGameAudioContext();
-        if (!ctx) return;
-        
-        isPlayingMusicBox = true;
-        
-        const notes = [349, 349, 349, 261, 440, 440, 440, 293, 466, 466, 466, 392, 349, 330, 349];
-        
-        function loop() {
-            if (!isPlayingMusicBox) return;
-            notes.forEach((freq, i) => playNote(freq, i * 0.5));
-            setTimeout(loop, notes.length * 500);
-        }
-        
-        loop(); 
-    }
-
-    function playTone(freq, duration, type, gainValue, startOffset = 0, endFreq = null) { 
-        const ctx = getGameAudioContext();
-        if (!ctx) return;
-        
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        const start = ctx.currentTime + startOffset;
-        
-        osc.type = type || 'sine';
-        osc.frequency.setValueAtTime(freq, start);
-        
-        if (endFreq) {
-            osc.frequency.exponentialRampToValueAtTime(endFreq, start + duration);
-        }
-        
-        gain.gain.setValueAtTime(gainValue, start);
-        gain.gain.exponentialRampToValueAtTime(0.001, start + duration);
-        
-        osc.connect(gain); 
-        gain.connect(ctx.destination);
-        
-        osc.start(start);
-        osc.stop(start + duration); 
-    }
-
-    function playNoise(duration, gainValue, startOffset = 0) { 
-        const ctx = getGameAudioContext();
-        if (!ctx) return;
-        
-        const length = Math.max(1, Math.floor(ctx.sampleRate * duration));
-        const buffer = ctx.createBuffer(1, length, ctx.sampleRate);
-        const data = buffer.getChannelData(0);
-        
-        for (let i = 0; i < length; i++) {
-            data[i] = Math.random() * 2 - 1;
-        }
-        
-        const src = ctx.createBufferSource();
-        const gain = ctx.createGain();
-        const filter = ctx.createBiquadFilter();
-        const start = ctx.currentTime + startOffset;
-        
-        filter.type = 'bandpass';
-        filter.frequency.setValueAtTime(1200, start);
-        filter.Q.setValueAtTime(0.9, start);
-        
-        gain.gain.setValueAtTime(gainValue, start);
-        gain.gain.exponentialRampToValueAtTime(0.001, start + duration);
-        
-        src.buffer = buffer;
-        src.connect(filter); 
-        filter.connect(gain); 
-        gain.connect(ctx.destination);
-        
-        src.start(start);
-        src.stop(start + duration); 
-    }
-
+    // --- ЗВУКОВОЙ ДВИЖОК ---
+    function getGameAudioContext() { try { if (!audioCtx) audioCtx = new (window.AudioContext || window.webkitAudioContext)(); if (audioCtx.state === 'suspended') audioCtx.resume(); return audioCtx; } catch(e) { return null; } }
+    function playNote(freq, timeOffset) { if (!audioCtx) return; const osc = audioCtx.createOscillator(); const gain = audioCtx.createGain(); osc.connect(gain); gain.connect(audioCtx.destination); osc.type = 'sine'; osc.frequency.setValueAtTime(freq, audioCtx.currentTime + timeOffset); gain.gain.setValueAtTime(0.3, audioCtx.currentTime + timeOffset); gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + timeOffset + 0.6); osc.start(audioCtx.currentTime + timeOffset); osc.stop(audioCtx.currentTime + timeOffset + 0.6); }
+    function playMusicBox() { const ctx = getGameAudioContext(); if (!ctx) return; isPlayingMusicBox = true; const notes = [349, 349, 349, 261, 440, 440, 440, 293, 466, 466, 466, 392, 349, 330, 349]; function loop() { if (!isPlayingMusicBox) return; notes.forEach((freq, i) => playNote(freq, i * 0.5)); setTimeout(loop, notes.length * 500); } loop(); }
+    function playTone(freq, duration, type, gainValue, startOffset = 0, endFreq = null) { const ctx = getGameAudioContext(); if (!ctx) return; const osc = ctx.createOscillator(); const gain = ctx.createGain(); const start = ctx.currentTime + startOffset; osc.type = type || 'sine'; osc.frequency.setValueAtTime(freq, start); if (endFreq) osc.frequency.exponentialRampToValueAtTime(endFreq, start + duration); gain.gain.setValueAtTime(gainValue, start); gain.gain.exponentialRampToValueAtTime(0.001, start + duration); osc.connect(gain); gain.connect(ctx.destination); osc.start(start); osc.stop(start + duration); }
+    function playNoise(duration, gainValue, startOffset = 0) { const ctx = getGameAudioContext(); if (!ctx) return; const length = Math.max(1, Math.floor(ctx.sampleRate * duration)); const buffer = ctx.createBuffer(1, length, ctx.sampleRate); const data = buffer.getChannelData(0); for (let i = 0; i < length; i++) data[i] = Math.random() * 2 - 1; const src = ctx.createBufferSource(); const gain = ctx.createGain(); const filter = ctx.createBiquadFilter(); const start = ctx.currentTime + startOffset; filter.type = 'bandpass'; filter.frequency.setValueAtTime(1200, start); filter.Q.setValueAtTime(0.9, start); gain.gain.setValueAtTime(gainValue, start); gain.gain.exponentialRampToValueAtTime(0.001, start + duration); src.buffer = buffer; src.connect(filter); filter.connect(gain); gain.connect(ctx.destination); src.start(start); src.stop(start + duration); }
+    
     function playSound(id) {
-        if (id === 'cameraOpen') { 
-            playTone(130, 0.22, 'sawtooth', 0.08, 0, 55); 
-            playNoise(0.12, 0.05); 
-        }
-        if (id === 'cameraClose') { 
-            playTone(70, 0.18, 'square', 0.08, 0, 35); 
-            playNoise(0.08, 0.035); 
-        }
-        if (id === 'cameraSwitch') { 
-            playNoise(0.16, 0.055); 
-            playTone(820, 0.04, 'square', 0.035); 
-        }
-        if (id === 'lightOn') { 
-            playTone(660, 0.06, 'square', 0.045); 
-            playNoise(0.035, 0.025); 
-        }
-        if (id === 'lightOff') { 
-            playTone(360, 0.05, 'square', 0.035); 
-        }
-        if (id === 'doorClose') { 
-            playTone(95, 0.32, 'sawtooth', 0.09, 0, 48); 
-            playNoise(0.22, 0.035); 
-        }
-        if (id === 'doorOpen') { 
-            playTone(52, 0.26, 'sawtooth', 0.075, 0, 110); 
-            playNoise(0.12, 0.025); 
-        }
-        if (id === 'mask') { 
-            playTone(170, 0.13, 'triangle', 0.055); 
-            playNoise(0.08, 0.025); 
-        }
-        if (id === 'blackout') { 
-            playTone(110, 1.1, 'sawtooth', 0.08, 0, 35); 
-            playNoise(0.45, 0.04); 
-        }
-        if (id === 'jumpscare_synth') { 
-            playNoise(1.05, 0.24); 
-            playTone(90, 0.75, 'sawtooth', 0.15, 0, 740); 
-            playTone(380, 0.55, 'square', 0.11, 0.04, 1200); 
-            playTone(55, 1.1, 'triangle', 0.18, 0, 35); 
-        }
+        if (id === 'cameraOpen') { playTone(130, 0.22, 'sawtooth', 0.08, 0, 55); playNoise(0.12, 0.05); }
+        if (id === 'cameraClose') { playTone(70, 0.18, 'square', 0.08, 0, 35); playNoise(0.08, 0.035); }
+        if (id === 'cameraSwitch') { playNoise(0.16, 0.055); playTone(820, 0.04, 'square', 0.035); }
+        if (id === 'lightOn') { playTone(660, 0.06, 'square', 0.045); playNoise(0.035, 0.025); }
+        if (id === 'lightOff') { playTone(360, 0.05, 'square', 0.035); }
+        if (id === 'doorClose') { playTone(95, 0.32, 'sawtooth', 0.09, 0, 48); playNoise(0.22, 0.035); }
+        if (id === 'doorOpen') { playTone(52, 0.26, 'sawtooth', 0.075, 0, 110); playNoise(0.12, 0.025); }
+        if (id === 'mask') { playTone(170, 0.13, 'triangle', 0.055); playNoise(0.08, 0.025); }
+        if (id === 'blackout') { playTone(110, 1.1, 'sawtooth', 0.08, 0, 35); playNoise(0.45, 0.04); }
+        if (id === 'jumpscare_synth') { playNoise(1.05, 0.24); playTone(90, 0.75, 'sawtooth', 0.15, 0, 740); playTone(380, 0.55, 'square', 0.11, 0.04, 1200); playTone(55, 1.1, 'triangle', 0.18, 0, 35); }
     }
 
     function setupRetroPlayer() {
@@ -1608,70 +1026,23 @@
         const pauseBtn = document.getElementById('audio-pause-btn');
         const input = document.getElementById('audio-file-input');
         
-        const setPlaying = val => { 
-            playBtn.classList.toggle('playing', val); 
-            pauseBtn.classList.toggle('playing', !val && !!nightAudio && !!nightAudio.src); 
-        };
+        const setPlaying = val => { playBtn.classList.toggle('playing', val); pauseBtn.classList.toggle('playing', !val && !!nightAudio && !!nightAudio.src); };
+        const playCurrentAudio = () => { if(!nightAudio || !nightAudio.src) return; nightAudio.volume = 0.3; nightAudio.play().then(() => setPlaying(true)).catch(() => setPlaying(false)); };
         
-        const playCurrentAudio = () => { 
-            if(!nightAudio || !nightAudio.src) return; 
-            nightAudio.volume = 0.3; 
-            nightAudio.play().then(() => setPlaying(true)).catch(() => setPlaying(false)); 
-        };
-        
-        playBtn.addEventListener('click', () => { 
-            if(nightAudio && nightAudio.src && nightAudio.paused) { 
-                playCurrentAudio(); 
-                return; 
-            } 
-            input.click(); 
-        });
-        
-        pauseBtn.addEventListener('click', () => { 
-            if(!nightAudio || !nightAudio.src) return; 
-            nightAudio.pause(); 
-            setPlaying(false); 
-        });
-        
-        input.addEventListener('change', () => { 
-            const f = input.files && input.files[0]; 
-            if(!f) return; 
-            if(nightAudioUrl) URL.revokeObjectURL(nightAudioUrl); 
-            nightAudioUrl = URL.createObjectURL(f); 
-            if(!nightAudio) nightAudio = new Audio(); 
-            nightAudio.src = nightAudioUrl; 
-            nightAudio.loop = true; 
-            nightAudio.currentTime = 0; 
-            playCurrentAudio(); 
-        });
+        playBtn.addEventListener('click', () => { if(nightAudio && nightAudio.src && nightAudio.paused) { playCurrentAudio(); return; } input.click(); });
+        pauseBtn.addEventListener('click', () => { if(!nightAudio || !nightAudio.src) return; nightAudio.pause(); setPlaying(false); });
+        input.addEventListener('change', () => { const f = input.files && input.files[0]; if(!f) return; if(nightAudioUrl) URL.revokeObjectURL(nightAudioUrl); nightAudioUrl = URL.createObjectURL(f); if(!nightAudio) nightAudio = new Audio(); nightAudio.src = nightAudioUrl; nightAudio.loop = true; nightAudio.currentTime = 0; playCurrentAudio(); });
     }
 
-    function setOfficeSprite(id, sprite, width, height) { 
-        const n = document.getElementById(id); 
-        n.innerHTML = sprite; 
-        const s = n.querySelector('svg'); 
-        if(s) { 
-            s.style.width = width; 
-            s.style.height = height; 
-            s.style.maxWidth = '100%'; 
-            s.style.maxHeight = '100%'; 
-        } 
-    }
-
-    function syncOfficeSprites() { 
-        setOfficeSprite('fb-hall', SVGS.fb, '250px', '350px'); 
-        setOfficeSprite('sb-vent-l', SVGS.sb, '190px', '230px'); 
-        setOfficeSprite('sb-vent-r', SVGS.sb, '190px', '230px'); 
-    }
+    function setOfficeSprite(id, sprite, width, height) { const n = document.getElementById(id); n.innerHTML = sprite; const s = n.querySelector('svg'); if(s) { s.style.width = width; s.style.height = height; s.style.maxWidth = '100%'; s.style.maxHeight = '100%'; } }
+    function syncOfficeSprites() { setOfficeSprite('fb-hall', SVGS.fb, '250px', '350px'); setOfficeSprite('sb-vent-l', SVGS.sb, '190px', '230px'); setOfficeSprite('sb-vent-r', SVGS.sb, '190px', '230px'); }
 
     function renderScroll() {
         if (!state.tablet && !state.mask && !state.gameOver && !state.inBlackout) {
             if (mouseX < 0.5) panX += (0.5 - mouseX) * 2.4; 
             if (mouseX > 0.5) panX -= (mouseX - 0.5) * 2.4; 
-            
             if (panX > MAX_PAN) panX = MAX_PAN; 
             if (panX < MIN_PAN) panX = MIN_PAN;
-            
             document.getElementById('office-panorama').style.transform = `translateX(${panX}vw)`;
         }
         requestAnimationFrame(renderScroll);
@@ -1679,7 +1050,6 @@
 
     function evaluateVentBlock() {
         const sb = state.enemies.sb;
-        
         ['L', 'R'].forEach(side => {
             if (sb.pos === 'Vent' + side) {
                 if (state['door' + side]) {
@@ -1688,61 +1058,103 @@
                         sb.ventWaitTimer = setTimeout(() => {
                             sb.ventWaitTimer = null;
                             if (state['door' + side] && sb.pos === 'Vent' + side) {
-                                sb.pos = 'Dining'; 
-                                sb.currentPath = Math.random() > 0.5 ? sb.pathL : sb.pathR;
-                                if (state.tablet) renderCam(); 
-                                updateOffice();
+                                sb.pos = 'Dining'; sb.currentPath = Math.random() > 0.5 ? sb.pathL : sb.pathR;
+                                if (state.tablet) renderCam(); updateOffice();
                             }
                         }, waitTime);
                     }
-                } else { 
-                    if (sb.ventWaitTimer) { 
-                        clearTimeout(sb.ventWaitTimer); 
-                        sb.ventWaitTimer = null; 
-                    } 
-                }
+                } else { if (sb.ventWaitTimer) { clearTimeout(sb.ventWaitTimer); sb.ventWaitTimer = null; } }
             }
         });
     }
 
     function toggleDoor(side) {
         if(state.power <= 0 || state.gameOver) return;
-        
         state['door'+side] = !state['door'+side];
         playSound(state['door'+side] ? 'doorClose' : 'doorOpen');
-        
         document.getElementById('v-door-'+side.toLowerCase()).style.height = state['door'+side] ? '100%' : '0';
         document.getElementById('btn-door-'+side.toLowerCase()).classList.toggle('btn-active-door', state['door'+side]);
-        
-        updateUsage(); 
-        updateOffice(); 
-        evaluateVentBlock();
+        updateUsage(); updateOffice(); evaluateVentBlock();
     }
 
     function setLight(side, val) {
         if(state.power <= 0 || state.gameOver) return;
-        
         if(state['light'+side] !== val) playSound(val ? 'lightOn' : 'lightOff');
         state['light'+side] = val;
-        
         document.getElementById('v-light-'+side.toLowerCase()).style.opacity = val ? 1 : 0;
         document.getElementById('btn-light-'+side.toLowerCase()).classList.toggle('btn-active-light', val);
+        updateUsage(); updateOffice();
+    }
+
+    // --- ЭНДОСКЕЛЕТ (Механика закрытия калитки) ---
+    function startClosingGate() {
+        if (state.endo.escaped || state.gameOver || state.inBlackout) return;
         
-        updateUsage(); 
-        updateOffice();
+        // Быстро опускаем шкалу прогресса
+        endoWindingInterval = setInterval(() => {
+            state.endo.gateProgress -= 5;
+            if (state.endo.gateProgress < 0) state.endo.gateProgress = 0;
+            updateEndoUI();
+        }, 100);
     }
 
-    function getSpringBonnieVentAttackSide() { 
-        const sb = state.enemies.sb; 
-        if(sb.pos === 'VentL' && !state.doorL) return 'L'; 
-        if(sb.pos === 'VentR' && !state.doorR) return 'R'; 
-        return null; 
+    function stopClosingGate() {
+        if (endoWindingInterval) {
+            clearInterval(endoWindingInterval);
+            endoWindingInterval = null;
+        }
     }
 
+    function updateEndoUI() {
+        document.getElementById('endo-progress-fill').style.height = state.endo.gateProgress + '%';
+        
+        // Меняем цвет от зеленого к красному
+        if (state.endo.gateProgress > 80) {
+            document.getElementById('endo-progress-fill').style.background = '#ff0000';
+            document.getElementById('endo-progress-fill').style.boxShadow = '0 0 15px #ff0000';
+        } else if (state.endo.gateProgress > 50) {
+            document.getElementById('endo-progress-fill').style.background = '#ffcc00';
+            document.getElementById('endo-progress-fill').style.boxShadow = '0 0 10px #ffcc00';
+        } else {
+            document.getElementById('endo-progress-fill').style.background = '#00ff00';
+            document.getElementById('endo-progress-fill').style.boxShadow = '0 0 10px #00ff00';
+        }
+    }
+
+    function processEndo() {
+        if (state.endo.escaped || state.inBlackout || state.gameOver) return;
+        
+        // Скорость открытия калитки зависит от ночи
+        let speed = 1.0 + (currentNight * 0.4); 
+        state.endo.gateProgress += speed;
+
+        if (state.endo.gateProgress >= 100) {
+            state.endo.gateProgress = 100;
+            state.endo.escaped = true;
+            
+            // Если сбежал — задержка 3-4 сек и скример
+            setTimeout(() => {
+                if (!state.gameOver && !state.inBlackout) {
+                    closeTabletForThreat();
+                    triggerJumpscare('endo');
+                }
+            }, 3000 + Math.random() * 1000);
+        }
+        
+        // Если мы смотрим в планшет, обновляем полоску плавно
+        if (state.tablet && state.currentCam === 'Safe Room') {
+            updateEndoUI();
+        }
+    }
+
+    // --- ПЛАНШЕТ И МАСКА ---
+    function getSpringBonnieVentAttackSide() { const sb = state.enemies.sb; if(sb.pos === 'VentL' && !state.doorL) return 'L'; if(sb.pos === 'VentR' && !state.doorR) return 'R'; return null; }
+    
     function closeTabletForThreat() { 
         if(!state.tablet) return; 
         state.tablet = false; 
         document.getElementById('tablet').classList.remove('active'); 
+        stopClosingGate(); // Отпускаем калитку если закрыли планшет
         updateUsage(); 
         playSound('cameraClose'); 
     }
@@ -1751,14 +1163,12 @@
         if(state.gameOver || state.inBlackout) return; 
         if(side === 'L' && (state.enemies.sb.pos !== 'VentL' || state.doorL)) return; 
         if(side === 'R' && (state.enemies.sb.pos !== 'VentR' || state.doorR)) return; 
-        
         closeTabletForThreat(); 
         triggerJumpscare(side === 'L' ? 'sb_left' : 'sb_right'); 
     }
 
     function toggleTablet(val) {
         if(state.gameOver || state.inBlackout) return;
-        
         const next = val === undefined ? !state.tablet : val;
         if(next && state.mask) return;
         
@@ -1766,6 +1176,9 @@
         state.tablet = next; 
         playSound(next ? 'cameraOpen' : 'cameraClose');
         document.getElementById('tablet').classList.toggle('active', next); 
+        
+        if (!next) stopClosingGate(); // Остановка "завода" при закрытии планшета
+
         updateUsage();
         
         if(next) { 
@@ -1776,35 +1189,46 @@
 
     function toggleMask(val) {
         if(state.gameOver || state.inBlackout) return;
-        
         const next = val === undefined ? !state.mask : val;
         if(next && state.tablet) return;
-        
         if(state.mask !== next) playSound('mask');
         state.mask = next; 
         document.getElementById('mask-overlay').style.display = next ? 'block' : 'none';
-        updateUsage(); 
-        updateOffice();
+        updateUsage(); updateOffice();
     }
 
     function switchCam(id, label, el) { 
         state.currentCam = id; 
         playSound('cameraSwitch'); 
         document.getElementById('cam-name').innerText = label + ": " + id.toUpperCase(); 
-        
         document.querySelectorAll('.cam-node').forEach(n => n.classList.remove('active')); 
         el.classList.add('active'); 
         
+        stopClosingGate(); // Сбрасываем удержание при переключении камеры
         renderCam(); 
     }
 
     function renderCam() { 
         const bgLayer = document.getElementById('cam-bg-layer');
         const cont = document.getElementById('cam-content'); 
-        
+        const endoUI = document.getElementById('endo-ui');
+
         bgLayer.innerHTML = CAM_BACKGROUNDS[state.currentCam] || CAM_BACKGROUNDS['Default']; 
         cont.innerHTML = ""; 
         
+        // Показываем интерфейс Эндо только в Safe Room
+        if (state.currentCam === 'Safe Room') {
+            endoUI.style.display = 'block';
+            updateEndoUI();
+            
+            // Если Эндо не сбежал, показываем его в камере
+            if (!state.endo.escaped) {
+                cont.innerHTML += `<div style="position:absolute; top:40%; left:50%; transform:translate(-50%, -50%); opacity:0.8;">${SVGS.endo}</div>`;
+            }
+        } else {
+            endoUI.style.display = 'none';
+        }
+
         for(let k in state.enemies) { 
             if(state.enemies[k].pos === state.currentCam) {
                 cont.innerHTML += SVGS[k]; 
@@ -1814,16 +1238,10 @@
 
     function updateUsage() {
         let u = 1; 
-        if(state.tablet) u++; 
-        if(state.mask) u++; 
-        if(state.lightL || state.lightR) u++; 
-        if(state.doorL || state.doorR) u++; 
-        if(state.flashlight) u++;
+        if(state.tablet) u++; if(state.mask) u++; if(state.lightL || state.lightR) u++; if(state.doorL || state.doorR) u++; if(state.flashlight) u++;
         state.usage = u; 
-        
         const colors = ['#0f0', '#ff0', '#f90', '#f00', '#c00', '#900'];
         const display = document.getElementById('usage-val'); 
-        
         display.innerText = i18n[currentLang].usage + ": " + ">".repeat(u); 
         display.style.color = colors[u-1] || '#900';
     }
@@ -1837,26 +1255,19 @@
         if(state.gameOver) return;
         state.gameOver = true; 
         clearInterval(gameTickInterval); 
-        
+        stopClosingGate();
+
         blackoutTimeouts.forEach(clearTimeout);
         document.getElementById('blackout-event').style.display = 'none';
-
         document.getElementById('clock-ui').innerText = "6:00 AM";
         
-        ambienceAudio.pause(); 
-        isPlayingMusicBox = false; 
+        ambienceAudio.pause(); isPlayingMusicBox = false; 
         if(audioCtx) audioCtx.suspend(); 
         if(nightAudio && !nightAudio.paused) nightAudio.pause();
         
         const vid = document.getElementById('video-6am'); 
         vid.style.display = 'block';
-        
-        vid.play().then(() => {
-            vid.onended = nextNight;
-        }).catch(e => { 
-            alert(i18n[currentLang].survived); 
-            nextNight(); 
-        });
+        vid.play().then(() => { vid.onended = nextNight; }).catch(e => { alert(i18n[currentLang].survived); nextNight(); });
     }
 
     function tick() {
@@ -1866,23 +1277,22 @@
         let hr = Math.floor(state.time / (NIGHT_SECONDS / 6));
         document.getElementById('clock-ui').innerText = (hr === 0 ? "12" : hr) + ":00 AM";
         
-        if(hr === 6) { 
-            winNight(); 
-            return; 
-        }
+        if(hr === 6) { winNight(); return; }
 
         if(state.inBlackout) return; 
 
         state.power -= (state.usage * 0.16);
-        if(state.power <= 0) { 
-            state.power = 0; 
-            triggerBlackout(); 
-        }
+        if(state.power <= 0) { state.power = 0; triggerBlackout(); }
         document.getElementById('power-val').innerText = Math.floor(state.power);
 
-        if(hr >= 1 || currentNight > 1) moveSB();
-        if(hr >= (currentNight === 1 ? 2 : 1)) moveFB();
+        // --- ЛОГИКА ВРЕМЕНИ АКТИВАЦИИ ---
+        let sbActiveHour = currentNight <= 2 ? 1 : 0;
+        let fbActiveHour = Math.max(0, 5 - currentNight); // N1:4, N2:3, N3:2, N4:1, N5+:0
+
+        if(hr >= sbActiveHour) moveSB();
+        if(hr >= fbActiveHour) moveFB();
         
+        processEndo(); // Эндоскелет ломает дверь всегда
         checkAutomaticVentAttack(); 
         updateOffice();
     }
@@ -1890,38 +1300,22 @@
     function checkAutomaticVentAttack() {
         const sb = state.enemies.sb; 
         if (state.gameOver || state.inBlackout) return;
-        
-        if (sb.pos === 'VentL' && !state.doorL) { 
-            sb.openVentTime += 1; 
-            if (sb.openVentTime > 4) triggerJumpscare('sb_left'); 
-        } else if (sb.pos === 'VentR' && !state.doorR) { 
-            sb.openVentTime += 1; 
-            if (sb.openVentTime > 4) triggerJumpscare('sb_right'); 
-        } else {
-            sb.openVentTime = 0;
-        }
+        if (sb.pos === 'VentL' && !state.doorL) { sb.openVentTime += 1; if (sb.openVentTime > 4) triggerJumpscare('sb_left'); } 
+        else if (sb.pos === 'VentR' && !state.doorR) { sb.openVentTime += 1; if (sb.openVentTime > 4) triggerJumpscare('sb_right'); } 
+        else { sb.openVentTime = 0; }
     }
 
     function moveSB() {
         const e = state.enemies.sb;
         const delay = Math.max(1500, 4500 - currentNight * 500);
-        
         if(e.pos === 'VentL' || e.pos === 'VentR') return;
         
         if(Date.now() - e.lastMove > delay) {
             e.lastMove = Date.now();
-            
             if(Math.random() * 20 < e.aggro) {
-                if(e.pos === 'Dining' || e.pos === 'Kitchen') {
-                    e.currentPath = Math.random() > 0.5 ? e.pathL : e.pathR;
-                }
+                if(e.pos === 'Dining' || e.pos === 'Kitchen') e.currentPath = Math.random() > 0.5 ? e.pathL : e.pathR;
                 const idx = e.currentPath.indexOf(e.pos);
-                
-                if(idx === -1) { 
-                    e.pos = 'Dining'; 
-                    e.currentPath = Math.random() > 0.5 ? e.pathL : e.pathR; 
-                    return; 
-                }
+                if(idx === -1) { e.pos = 'Dining'; e.currentPath = Math.random() > 0.5 ? e.pathL : e.pathR; return; }
                 
                 if(idx < e.currentPath.length - 1) {
                     e.pos = e.currentPath[idx+1]; 
@@ -1935,25 +1329,17 @@
     function moveFB() {
         const e = state.enemies.fb;
         const delay = Math.max(3000, 8000 - currentNight * 600);
-        
         if(e.pos === 'Front Hall') return;
         
         if(Date.now() - e.lastMove > delay) {
             e.lastMove = Date.now();
-            
             if(Math.random() * 20 < e.aggro) {
                 const idx = e.path.indexOf(e.pos);
-                
                 if(idx < e.path.length - 1) {
                     e.pos = e.path[idx+1];
-                    if(e.pos === 'Front Hall') { 
-                        e.seen = false; 
-                        startFredbearFrontHallTimer(); 
-                    }
+                    if(e.pos === 'Front Hall') { e.seen = false; startFredbearFrontHallTimer(); }
                     if(state.tablet) renderCam();
-                } else if(e.pos === 'Dining') {
-                    e.pos = e.path[1];
-                }
+                } else if(e.pos === 'Dining') { e.pos = e.path[1]; }
             }
         }
     }
@@ -1961,131 +1347,66 @@
     function updateOffice() {
         if(state.gameOver || state.inBlackout) return;
         
-        const sb = state.enemies.sb;
-        const fb = state.enemies.fb;
-        const nodeL = document.getElementById('sb-vent-l');
-        const nodeR = document.getElementById('sb-vent-r');
+        const sb = state.enemies.sb; const fb = state.enemies.fb;
+        const nodeL = document.getElementById('sb-vent-l'); const nodeR = document.getElementById('sb-vent-r');
         
-        if(sb.pos === 'VentL') { 
-            if(state.doorL) {
-                nodeL.style.display = 'none'; 
-            } else { 
-                nodeL.style.display = 'block'; 
-                nodeL.style.opacity = state.lightL ? "1" : "0"; 
-            } 
-        } else {
-            nodeL.style.display = 'none';
-        }
+        if(sb.pos === 'VentL') { if(state.doorL) nodeL.style.display = 'none'; else { nodeL.style.display = 'block'; nodeL.style.opacity = state.lightL ? "1" : "0"; } } else nodeL.style.display = 'none';
+        if(sb.pos === 'VentR') { if(state.doorR) nodeR.style.display = 'none'; else { nodeR.style.display = 'block'; nodeR.style.opacity = state.lightR ? "1" : "0"; } } else nodeR.style.display = 'none';
         
-        if(sb.pos === 'VentR') { 
-            if(state.doorR) {
-                nodeR.style.display = 'none'; 
-            } else { 
-                nodeR.style.display = 'block'; 
-                nodeR.style.opacity = state.lightR ? "1" : "0"; 
-            } 
-        } else {
-            nodeR.style.display = 'none';
-        }
-        
-        const fbVisible = fb.pos === 'Front Hall' && state.flashlight; 
-        if(fbVisible) fb.seen = true;
-        
+        const fbVisible = fb.pos === 'Front Hall' && state.flashlight; if(fbVisible) fb.seen = true;
         document.getElementById('fb-hall').style.display = fbVisible ? 'block' : 'none';
-        
         if(fb.pos === 'Front Hall' && !fb.frontHallTimer) startFredbearFrontHallTimer();
         if(state.mask && (fb.pos === 'Front Hall' || fb.pos === 'OFFICE')) startFredbearRetreat();
         
-        if(fb.pos === 'OFFICE') { 
-            if(state.mask) {
-                startFredbearRetreat(); 
-            } else {
-                triggerJumpscare('fb'); 
-            }
-        }
+        if(fb.pos === 'OFFICE') { if(state.mask) startFredbearRetreat(); else triggerJumpscare('fb'); }
     }
 
     function startFredbearFrontHallTimer() {
-        const fb = state.enemies.fb; 
-        if(fb.frontHallTimer) return;
-        
+        const fb = state.enemies.fb; if(fb.frontHallTimer) return;
         fb.frontHallTimer = setTimeout(() => {
-            fb.frontHallTimer = null; 
-            if(state.gameOver || state.inBlackout) return;
-            
-            if(fb.pos === 'Front Hall' && !state.mask) { 
-                closeTabletForThreat(); 
-                triggerJumpscare('fb'); 
-            }
+            fb.frontHallTimer = null; if(state.gameOver || state.inBlackout) return;
+            if(fb.pos === 'Front Hall' && !state.mask) { closeTabletForThreat(); triggerJumpscare('fb'); }
         }, 5000);
     }
 
     function startFredbearRetreat() {
-        const fb = state.enemies.fb; 
-        if(fb.retreatTimer) return;
-        
+        const fb = state.enemies.fb; if(fb.retreatTimer) return;
         fb.retreatTimer = setTimeout(() => {
-            fb.retreatTimer = null; 
-            if(state.gameOver || state.inBlackout) return;
-            
+            fb.retreatTimer = null; if(state.gameOver || state.inBlackout) return;
             if(state.mask && (fb.pos === 'Front Hall' || fb.pos === 'OFFICE')) {
-                fb.pos = 'Dining'; 
-                fb.seen = false; 
-                fb.lastMove = Date.now();
-                
-                if(fb.frontHallTimer) { 
-                    clearTimeout(fb.frontHallTimer); 
-                    fb.frontHallTimer = null; 
-                }
-                
-                document.getElementById('fb-hall').style.display = 'none'; 
-                if(state.tablet) renderCam();
+                fb.pos = 'Dining'; fb.seen = false; fb.lastMove = Date.now();
+                if(fb.frontHallTimer) { clearTimeout(fb.frontHallTimer); fb.frontHallTimer = null; }
+                document.getElementById('fb-hall').style.display = 'none'; if(state.tablet) renderCam();
             }
         }, 3000 + Math.random() * 2000);
     }
 
     function triggerBlackout() {
-        state.inBlackout = true; 
-        playSound('blackout'); 
-        
-        state.tablet = false; 
-        state.mask = false;
+        state.inBlackout = true; playSound('blackout'); 
+        state.tablet = false; state.mask = false;
         
         document.getElementById('office-panorama').style.filter = "brightness(0.0)";
         document.getElementById('tablet').classList.remove('active'); 
         document.getElementById('mask-overlay').style.display = 'none';
-        document.getElementById('v-door-l').style.height = '0'; 
-        document.getElementById('v-door-r').style.height = '0';
+        document.getElementById('v-door-l').style.height = '0'; document.getElementById('v-door-r').style.height = '0';
         
         let t1 = setTimeout(() => {
-            const b = document.getElementById('blackout-event'); 
-            b.style.display = 'flex';
-            
+            const b = document.getElementById('blackout-event'); b.style.display = 'flex';
             try { playMusicBox(); } catch(e){}
-            
             let t2 = setTimeout(() => {
-                isPlayingMusicBox = false; 
-                b.innerHTML = '';
-                
-                let t3 = setTimeout(() => {
-                    triggerJumpscare('fb_blackout');
-                }, 1000 + Math.random() * 1000);
+                isPlayingMusicBox = false; b.innerHTML = '';
+                let t3 = setTimeout(() => { triggerJumpscare('fb_blackout'); }, 1000 + Math.random() * 1000);
                 blackoutTimeouts.push(t3);
-                
             }, 5000 + Math.random() * 7000);
             blackoutTimeouts.push(t2);
-            
         }, 2000);
         blackoutTimeouts.push(t1);
     }
 
     function triggerJumpscare(id) {
         if(state.gameOver) return;
-        state.gameOver = true; 
-        clearInterval(gameTickInterval);
-        
-        state.tablet = false; 
-        state.mask = false;
+        state.gameOver = true; clearInterval(gameTickInterval); stopClosingGate();
+        state.tablet = false; state.mask = false;
         
         document.getElementById('tablet').classList.remove('active'); 
         document.getElementById('mask-overlay').style.display = 'none'; 
@@ -2094,37 +1415,30 @@
         ambienceAudio.pause();
         
         setTimeout(() => {
-            const jump = document.getElementById('jumpscare'); 
-            jump.className = 'animating'; 
-            jump.style.transform = '';
+            const jump = document.getElementById('jumpscare'); jump.className = 'animating'; jump.style.transform = '';
             
             const isSB = id === 'sb' || id === 'sb_left' || id === 'sb_right';
             const isBlackout = id === 'fb_blackout';
+            const isEndo = id === 'endo';
             
             let spriteClass = 'jumpscare-fb';
-            if (isSB) {
-                spriteClass = 'jumpscare-sb ' + (id === 'sb_right' ? 'from-right' : 'from-left');
-            }
+            if (isSB) spriteClass = 'jumpscare-sb ' + (id === 'sb_right' ? 'from-right' : 'from-left');
+            if (isEndo) spriteClass = 'jumpscare-endo';
             
             let spriteSvg = SVGS.fb;
             if (isSB) spriteSvg = SVGS.sb;
             if (isBlackout) spriteSvg = SVGS.fb_blackout;
+            if (isEndo) spriteSvg = SVGS.endo;
             
             jump.innerHTML = `<div class="jumpscare-flash"></div><div class="jumpscare-sprite ${spriteClass}">${spriteSvg}</div>`;
             
-            if (isSB) { 
-                let s = new Audio('assets/Springbonnie.mp3'); 
-                s.play().catch(() => playSound('jumpscare_synth')); 
-            } else { 
-                let f = new Audio('assets/Fredbear.mp3'); 
-                f.play().catch(() => playSound('jumpscare_synth')); 
-            }
+            if (isSB) { let s = new Audio('assets/Springbonnie.mp3'); s.play().catch(() => playSound('jumpscare_synth')); } 
+            else { let f = new Audio('assets/Fredbear.mp3'); f.play().catch(() => playSound('jumpscare_synth')); }
             
             setTimeout(() => location.reload(), 2000);
         }, Math.random() * 400);
     }
 
-    // Инициализация при загрузке страницы
     window.onload = initMenu;
 
 </script>
