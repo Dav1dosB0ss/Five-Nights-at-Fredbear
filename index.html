@@ -524,8 +524,8 @@
             height: 100dvh; 
             z-index: 150; 
             pointer-events: none; 
-            /* %27 - это апостроф, %20 - это пробел. Теперь телефоны увидят картинку! */
-            background-image: url("assets/Fredbear%27s%20Mask.png");
+            /* Теперь ссылка простая, и GitHub её 100% прочитает */
+            background-image: url("assets/Mask.png");
             background-size: 100% 100%; 
             background-position: center;
             background-repeat: no-repeat;
@@ -1124,15 +1124,18 @@
     function processEndo() {
         if (state.endo.escaped || state.inBlackout || state.gameOver) return;
         
-        // Скорость открытия калитки зависит от ночи
-        let speed = 1.0 + (currentNight * 0.4); 
+        // Массив скоростей для каждой ночи (0 индекс пустой, 1-5 ночи)
+        // 1 ночь: медленно (1.0). 5 ночь: ОЧЕНЬ быстро (5.5)
+        const speedsByNight = [0, 1.0, 1.8, 2.8, 4.0, 5.5];
+        let speed = speedsByNight[currentNight] || 6.0; // Если 6+ ночь, скорость будет максимальной
+        
         state.endo.gateProgress += speed;
 
         if (state.endo.gateProgress >= 100) {
             state.endo.gateProgress = 100;
             state.endo.escaped = true;
             
-            // Если сбежал — задержка 3-4 сек и скример
+            // Задержка перед скримером после побега (от 3 до 4 сек)
             setTimeout(() => {
                 if (!state.gameOver && !state.inBlackout) {
                     closeTabletForThreat();
@@ -1141,7 +1144,7 @@
             }, 3000 + Math.random() * 1000);
         }
         
-        // Если мы смотрим в планшет, обновляем полоску плавно
+        // Плавно обновляем полоску
         if (state.tablet && state.currentCam === 'Safe Room') {
             updateEndoUI();
         }
