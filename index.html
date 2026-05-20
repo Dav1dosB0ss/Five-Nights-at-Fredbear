@@ -518,15 +518,15 @@
         /* ЗОЛОТАЯ МАСКА (FNaF 2 STYLE) */
         #mask-overlay { 
             display: none; 
-            position: fixed; /* Фиксируем намертво для телефонов и ПК */
+            position: fixed; 
             top: 0; left: 0;
             width: 100vw; 
             height: 100dvh; 
             z-index: 150; 
             pointer-events: none; 
-            /* Подключаем твою картинку */
-            background-image: url("assets/Fredbear's Mask.png");
-            background-size: 100% 100%; /* Растягивает картинку ровно по краям экрана, как во FNaF 2 */
+            /* %27 - это апостроф, %20 - это пробел. Теперь телефоны увидят картинку! */
+            background-image: url("assets/Fredbear%27s%20Mask.png");
+            background-size: 100% 100%; 
             background-position: center;
             background-repeat: no-repeat;
         }
@@ -1238,7 +1238,12 @@
 
     function updateUsage() {
         let u = 1; 
-        if(state.tablet) u++; if(state.mask) u++; if(state.lightL || state.lightR) u++; if(state.doorL || state.doorR) u++; if(state.flashlight) u++;
+        if(state.tablet) u++; 
+        // if(state.mask) u++; <--- Я УДАЛИЛ ЭТУ СТРОКУ, маска больше не жрет энергию!
+        if(state.lightL || state.lightR) u++; 
+        if(state.doorL || state.doorR) u++; 
+        if(state.flashlight) u++;
+        
         state.usage = u; 
         const colors = ['#0f0', '#ff0', '#f90', '#f00', '#c00', '#900'];
         const display = document.getElementById('usage-val'); 
